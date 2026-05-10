@@ -18,7 +18,7 @@ ESTUDIOS YOES/
 ├── README.md               ← Este archivo
 │
 ├── data/
-│   ├── conferencias.json   ← 74 conferencias (Fase A: 49, Fase B: 25)
+│   ├── conferencias.json   ← 75 conferencias (Fase A: 50, Fase B: 25)
 │   └── yoes.json           ← 6 Estudios de los Yoes
 │
 ├── assets/

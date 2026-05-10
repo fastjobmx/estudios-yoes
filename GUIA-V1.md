@@ -21,7 +21,7 @@ ESTUDIOS YOES/
 ├── GUIA-V1.md              ← Esta guía
 │
 ├── data/
-│   ├── conferencias.json   ← 74 conferencias estructuradas (Fase A + Fase B)
+│   ├── conferencias.json   ← 75 conferencias estructuradas (Fase A + Fase B)
 │   └── yoes.json           ← 6 Estudios de los Yoes
 │
 ├── assets/
@@ -51,7 +51,7 @@ ESTUDIOS YOES/
 | `cr-styles.css` | Sistema de diseño compartido: variables de color, navbar, tarjetas, skeleton, TOC, prose-reader, animaciones (halo, fade, backToTop, hover radial). |
 | `tailwind-config.js` | Define los colores y fuentes personalizadas de Tailwind. **Debe cargarse antes del CDN de Tailwind** en cada HTML. |
 | `generate_json.py` | Script Python que extrae texto de los PDFs y genera `data/conferencias.json`. Solo necesario si se actualizan los PDFs. |
-| `data/conferencias.json` | Base de datos de 74 conferencias en formato JSON. Cada entrada tiene: `id`, `phase`, `number`, `title`, `page`, `summary`, `tags[]`, `content[]`. |
+| `data/conferencias.json` | Base de datos de 75 conferencias en formato JSON. Cada entrada tiene: `id`, `phase`, `number`, `title`, `page`, `summary`, `tags[]`, `content[]`. |
 | `data/yoes.json` | Base de datos de 6 estudios de los Yoes. Misma estructura que conferencias pero con `collection: "yoes"` en lugar de `phase`. |
 
 ---
@@ -286,8 +286,8 @@ Ejecutar con el servidor local activo:
 - [ ] El menú móvil (ícono hamburguesa) funciona y se cierra al hacer clic en un link
 
 ### Datos
-- [ ] El catálogo muestra 74 conferencias + 6 Yoes = 80 items en "Todo"
-- [ ] El filtro "Fase A" muestra 49 items
+- [ ] El catálogo muestra 75 conferencias + 6 Yoes = 81 items en "Todo"
+- [ ] El filtro "Fase A" muestra 50 items
 - [ ] El filtro "Fase B" muestra 25 items
 - [ ] El filtro "Yoes" muestra 6 items
 - [ ] La búsqueda filtra por título, tags y resumen
