@@ -3,17 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" id="metaDesc" content="Lectura de conferencia — Conciencia Revolucionaria" />
+  <meta name="description" id="metaDesc" content="Lectura de conferencia — Conciencia Revolucionaria. Escuela de Auto-Conocimiento." />
+  <meta name="keywords" id="metaKeywords" content="conferencia, auto-conocimiento, conciencia, meditación, gnosis" />
+  <meta name="author" content="Conciencia Revolucionaria" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#050505" />
   <title id="pageTitle">Conferencia | Conciencia Revolucionaria</title>
+  <link rel="canonical" id="canonicalUrl" href="https://concienciarevolucionaria.com/conferencia.html" />
 
   <!-- Open Graph (se actualizan con JS al cargar la conferencia) -->
   <meta property="og:type"        content="article" />
+  <meta property="og:url"         id="ogUrl"         content="https://concienciarevolucionaria.com/conferencia.html" />
+  <meta property="og:site_name"   content="Conciencia Revolucionaria" />
   <meta property="og:title"       id="ogTitle"       content="Conciencia Revolucionaria" />
   <meta property="og:description" id="ogDesc"        content="Conferencia de la escuela de Auto-Conocimiento." />
-  <meta property="og:image"       content="assets/og-image.svg" />
-  <meta name="twitter:card"       content="summary_large_image" />
+  <meta property="og:image"       content="https://concienciarevolucionaria.com/assets/og-image.svg" />
+  <meta property="og:locale"      content="es_ES" />
+  <meta property="article:section" content="Conferencias" />
+  <!-- Twitter / X -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       id="twTitle"  content="Conciencia Revolucionaria" />
+  <meta name="twitter:description" id="twDesc"   content="Conferencia de la escuela de Auto-Conocimiento." />
+  <meta name="twitter:image"       content="https://concienciarevolucionaria.com/assets/og-image.svg" />
 
-  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <!-- Favicon -->
+  <link rel="icon" href="assets/logo1.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/logo.png"  type="image/png" sizes="512x512" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -725,11 +741,18 @@
       currentId  = id;
       markedRead = isRead(id);
 
-      /* ── OG meta ── */
-      document.title = `${conf.title} | Conciencia Revolucionaria`;
-      $('#metaDesc').setAttribute('content', conf.summary || '');
-      $('#ogTitle').setAttribute('content', conf.title);
-      $('#ogDesc').setAttribute('content',  conf.summary || '');
+      /* ── OG / SEO meta dinámico ── */
+      const pageTitle = `${conf.title} | Conciencia Revolucionaria`;
+      const pageDesc  = conf.summary || `Conferencia ${conf.number} de Fase ${conf.phase} — Escuela de Auto-Conocimiento.`;
+      const pageUrl   = `https://concienciarevolucionaria.com/conferencia.html?id=${conf.id}`;
+      document.title = pageTitle;
+      $('#metaDesc')?.setAttribute('content', pageDesc);
+      $('#ogTitle')?.setAttribute('content',  pageTitle);
+      $('#ogDesc')?.setAttribute('content',   pageDesc);
+      $('#ogUrl')?.setAttribute('content',    pageUrl);
+      $('#twTitle')?.setAttribute('content',  pageTitle);
+      $('#twDesc')?.setAttribute('content',   pageDesc);
+      $('#canonicalUrl')?.setAttribute('href', pageUrl);
 
       /* ── Tiempo de lectura ── */
       const words = wordCount(conf.content);
