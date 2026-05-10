@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" id="metaDesc" content="Lectura de conferencia — Conciencia Revolucionaria" />
+  <title id="pageTitle">Conferencia | Conciencia Revolucionaria</title>
+
+  <!-- Open Graph (se actualizan con JS al cargar la conferencia) -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:title"       id="ogTitle"       content="Conciencia Revolucionaria" />
+  <meta property="og:description" id="ogDesc"        content="Conferencia de la escuela de Auto-Conocimiento." />
+  <meta property="og:image"       content="assets/og-image.svg" />
+  <meta name="twitter:card"       content="summary_large_image" />
+
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="cr-styles.css" />
+  <style>
+    /* TOC sidebar scroll */
+    #toc { max-height: calc(100vh - 260px); overflow-y: auto; scrollbar-width: thin; }
+    #toc::-webkit-scrollbar { width: 3px; }
+    #toc::-webkit-scrollbar-track { background: transparent; }
+    #toc::-webkit-scrollbar-thumb { background: rgba(198,161,91,.2); border-radius: 999px; }
+
+    /* Focused reading mode */
+    body.focus-mode #sidebar,
+    body.focus-mode #mobileTOC,
+    body.focus-mode #relatedSection,
+    body.focus-mode #readerNav,
+    body.focus-mode #readerToolbar { display: none !important; }
+    body.focus-mode #exitFocusBtn  { display: flex !important; }
+    body.focus-mode #confHero .hero-meta,
+    body.focus-mode #confHero .hero-eyebrow { opacity: .4; }
+    body.focus-mode .prose-reader { max-width: 66ch; margin: 0 auto; }
+    body.focus-mode #proseContent { margin: 0 auto; }
+
+    /* Line highlight on hover */
+    .prose-reader p:hover { background: rgba(198,161,91,.025); border-radius: .5rem; margin-left: -.35rem; padding-left: .35rem; }
+
+    /* ── Modal de imagen ── */
+    #imgModal {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(5,5,5,.93); backdrop-filter: blur(10px);
+      align-items: center; justify-content: center; padding: 1.5rem;
+    }
+    #imgModal.open { display: flex; }
+    #imgModal img {
+      max-width: min(92vw, 1100px); max-height: 88vh;
+      object-fit: contain; border-radius: 1rem;
+      border: 1px solid rgba(198,161,91,.3);
+      box-shadow: 0 0 80px rgba(198,161,91,.1);
+    }
+    #imgModalClose {
+      position: absolute; top: 1.25rem; right: 1.25rem;
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+      color: rgba(246,240,231,.7); border-radius: 50%;
+      width: 2.5rem; height: 2.5rem; display: grid; place-items: center;
+      cursor: pointer; font-size: 1.1rem; transition: background .2s;
+    }
+    #imgModalClose:hover { background: rgba(198,161,91,.2); color: #F0D58C; }
+    #imgModalCaption {
+      position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+      font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(246,240,231,.4); text-align: center; max-width: 60ch;
+    }
+    /* Details summary arrow rotate */
+    details[open] summary svg { transform: rotate(180deg); }
+  </style>
+</head>
+
+<body class="bg-void text-bone selection:bg-gold selection:text-void">
+  <div id="progressBar"></div>
+
+  <!-- ══ NAVBAR ══ -->
+  <header id="navbar">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-10">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/logo.png" alt="Logo" class="h-9 w-9 object-contain"
+             onerror="this.onerror=null;this.src='assets/logo.svg';" />
+        <span class="hidden text-[.68rem] font-semibold uppercase tracking-[.28em] text-bone/70 sm:block leading-tight">
+          Conciencia<br><span class="text-gold">Revolucionaria</span>
+        </span>
+      </a>
+
+      <div class="hidden items-center gap-6 text-[.68rem] font-bold uppercase tracking-[.2em] text-bone/50 md:flex">
+        <a class="transition hover:text-gold2" href="index.html">Inicio</a>
+        <a class="transition hover:text-gold2" href="conferencias.html">Biblioteca</a>
+      </div>
+
+      <!-- Reader link (mobile) -->
+      <a href="conferencias.html" class="md:hidden toolbar-btn" aria-label="Volver a biblioteca">
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      </a>
+    </nav>
+  </header>
+
+  <main id="mainContent">
+    <!-- ── Loading state ── -->
+    <div id="loadingState" class="flex min-h-screen items-center justify-center">
+      <div class="text-center">
+        <div class="mx-auto h-12 w-12 rounded-full border border-gold/20 border-t-gold/70 animate-spin" style="animation:spin 1s linear infinite;"></div>
+        <p class="mt-6 text-[.7rem] font-bold uppercase tracking-[.28em] text-bone/35">Cargando...</p>
+      </div>
+    </div>
+
+    <!-- ── 404 state ── -->
+    <div id="notFoundState" class="hidden min-h-screen flex items-center justify-center px-5">
+      <div class="text-center max-w-lg">
+        <p class="font-serif text-8xl text-bone/10">404</p>
+        <h1 class="mt-6 font-serif text-4xl">Conferencia no encontrada</h1>
+        <p class="mt-4 text-sm leading-7 text-bone/45">El identificador solicitado no existe en la biblioteca. Verifica la URL o regresa al catálogo.</p>
+        <a href="conferencias.html" class="mt-8 inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-bold uppercase tracking-[.18em] text-bone/60 transition hover:border-gold/40 hover:text-gold2">
+          ← Volver a la biblioteca
+        </a>
+      </div>
+    </div>
+
+    <!-- ── Reader layout ── -->
+    <div id="readerLayout" class="hidden mx-auto max-w-7xl px-5 pt-24 pb-20 lg:px-10">
+
+      <!-- Breadcrumb -->
+      <div id="readerNav" class="mb-6 flex flex-wrap items-center gap-2">
+        <a href="conferencias.html" class="inline-flex items-center gap-1.5 text-[.62rem] font-bold uppercase tracking-[.2em] text-bone/32 transition hover:text-gold2">
+          <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          Biblioteca
+        </a>
+        <span class="text-bone/16">›</span>
+        <span id="breadPhase" class="text-[.62rem] font-bold uppercase tracking-[.2em] text-bone/32"></span>
+        <span class="text-bone/16">›</span>
+        <span id="breadTitle" class="text-[.62rem] text-bone/32 truncate max-w-[22ch]"></span>
+      </div>
+
+      <!-- ── TOOLBAR PILL ── -->
+      <div id="readerToolbar">
+        <div id="readerToolbarInner">
+          <div class="flex items-center gap-1.5">
+            <span id="readingPct" class="text-[.58rem] font-bold uppercase tracking-[.16em] text-bone/35 min-w-[4rem]"></span>
+            <span id="readingTime" class="hidden sm:inline text-[.58rem] font-bold uppercase tracking-[.14em] text-bone/22"></span>
+          </div>
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <button id="btnFontDown" class="toolbar-btn" aria-label="Texto más pequeño">A−</button>
+            <button id="btnFontUp"   class="toolbar-btn" aria-label="Texto más grande">A+</button>
+            <button id="btnSpotlight" class="toolbar-btn hidden md:inline-flex" aria-label="Modo lectura spotlight">
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+              Spotlight
+            </button>
+            <button id="btnFocus" class="toolbar-btn hidden md:inline-flex" aria-label="Modo enfocado">
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+              Foco
+            </button>
+            <button id="btnCopyLinkMobile" class="toolbar-btn" aria-label="Copiar enlace">
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+              <span class="hidden sm:inline">Copiar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-10 xl:gap-14">
+
+        <!-- ── SIDEBAR TOC ── -->
+        <aside id="sidebar" class="hidden xl:block w-52 shrink-0">
+          <div class="sticky top-28">
+            <p class="text-[.55rem] font-extrabold uppercase tracking-[.34em] text-gold/55 mb-3">Índice</p>
+            <nav id="toc" aria-label="Tabla de contenido" class="space-y-0.5"></nav>
+
+            <!-- Progress visual -->
+            <div class="mt-6 pt-4 border-t border-white/6">
+              <div class="flex justify-between mb-1.5">
+                <span class="text-[.55rem] uppercase tracking-[.2em] text-bone/28">Progreso</span>
+                <span id="tocPct" class="text-[.55rem] font-bold text-gold/55">0%</span>
+              </div>
+              <div class="h-0.5 bg-white/6 rounded-full overflow-hidden">
+                <div id="tocProgressBar" class="h-full bg-gradient-to-r from-gold to-gold2 rounded-full transition-all duration-300" style="width:0"></div>
+              </div>
+            </div>
+
+            <!-- Copy link -->
+            <button id="btnCopyLink"
+              class="mt-5 w-full toolbar-btn justify-center">
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+              Copiar enlace
+            </button>
+
+            <!-- Mobile TOC toggle (< xl) -->
+          </div>
+        </aside>
+
+        <!-- ── MAIN READER ── -->
+        <div class="flex-1 min-w-0">
+
+          <!-- Mobile TOC accordion -->
+          <details id="mobileTOC" class="xl:hidden mb-6 rounded-[1.2rem] border border-white/8 bg-white/[.02] overflow-hidden">
+            <summary class="flex items-center justify-between px-4 py-3 cursor-pointer text-[.62rem] font-bold uppercase tracking-[.22em] text-bone/40 list-none select-none hover:text-gold2 transition">
+              <span>Índice de la conferencia</span>
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="transition-transform"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <nav id="tocMobile" class="px-4 pb-4 pt-1 space-y-0.5" aria-label="Tabla de contenido móvil"></nav>
+          </details>
+
+          <!-- Conference hero -->
+          <div id="confHero">
+            <div class="hero-eyebrow">
+              <div id="confMeta"></div>
+              <span id="readBadgeHeader" class="hidden read-badge"><svg width="8" height="8" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.793l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>Leída</span>
+            </div>
+            <h1 id="confTitle"></h1>
+            <p id="confSummary" class="hero-summary"></p>
+            <div id="confTags" class="flex flex-wrap gap-2 mb-4"></div>
+            <div class="hero-meta">
+              <span class="hero-meta-item">📖 <span id="readingTimeHero"></span></span>
+              <span class="hero-meta-item" id="heroPage"></span>
+              <span class="hero-meta-item" id="heroSource"></span>
+            </div>
+          </div>
+
+          <!-- Prose content -->
+          <article id="proseContent" class="prose-reader"></article>
+
+          <!-- Divider -->
+          <div class="h-px bg-gradient-to-r from-transparent via-gold/18 to-transparent mt-16 mb-10"></div>
+
+          <!-- Prev / Next navigation -->
+          <nav id="prevNextNav" class="flex flex-col gap-4 sm:flex-row sm:justify-between">
+            <a id="btnPrev" href="#" class="hidden flex-1 items-center gap-4 rounded-2xl border border-white/8 bg-white/[.02] p-5 transition hover:border-gold/25 hover:bg-white/[.04]">
+              <span class="text-xl text-bone/22">←</span>
+              <div>
+                <p class="text-[.58rem] font-bold uppercase tracking-[.22em] text-bone/28">Anterior</p>
+                <p id="prevTitle" class="mt-1 text-sm font-semibold text-bone/65 line-clamp-2"></p>
+              </div>
+            </a>
+            <a id="btnNext" href="#" class="hidden flex-1 items-center justify-end gap-4 rounded-2xl border border-white/8 bg-white/[.02] p-5 text-right transition hover:border-gold/25 hover:bg-white/[.04]">
+              <div>
+                <p class="text-[.58rem] font-bold uppercase tracking-[.22em] text-bone/28">Siguiente</p>
+                <p id="nextTitle" class="mt-1 text-sm font-semibold text-bone/65 line-clamp-2"></p>
+              </div>
+              <span class="text-xl text-bone/22">→</span>
+            </a>
+          </nav>
+
+        </div>
+      </div>
+
+      <!-- Related conferences -->
+      <section id="relatedSection" class="mt-20 pt-12 border-t border-white/6">
+        <p class="text-[.62rem] font-extrabold uppercase tracking-[.36em] text-gold/55 mb-8">También en la biblioteca</p>
+        <div id="relatedGrid" class="grid gap-4 md:grid-cols-2 lg:grid-cols-3"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ── Modal imagen ── -->
+  <div id="imgModal" role="dialog" aria-modal="true" aria-label="Ver imagen completa">
+    <button id="imgModalClose" aria-label="Cerrar">✕</button>
+    <img id="imgModalImg" src="" alt="" />
+    <p id="imgModalCaption"></p>
+  </div>
+
+  <!-- Exit focus mode button (visible only in focus-mode) -->
+  <button id="exitFocusBtn"
+    style="display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:50;"
+    class="items-center gap-2 rounded-full border border-white/20 bg-void/90 px-5 py-3 text-[.62rem] font-bold uppercase tracking-[.2em] text-bone/55 backdrop-blur-xl transition hover:border-gold/40 hover:text-gold2">
+    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 9l-6 6 6 6M15 9l6 6-6 6"/></svg>
+    Salir del modo foco
+  </button>
+
+  <!-- Back to top -->
+  <button id="backToTop" aria-label="Volver arriba">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <!-- Footer minimal -->
+  <footer class="border-t border-white/8 px-5 py-8 lg:px-10">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-[.65rem] font-bold uppercase tracking-[.2em] text-bone/32 md:flex-row">
+      <span>© <span id="year"></span> Conciencia Revolucionaria</span>
+      <div class="flex gap-5">
+        <a href="index.html"        class="hover:text-gold2 transition">Inicio</a>
+        <a href="conferencias.html" class="hover:text-gold2 transition">Biblioteca</a>
+        <a href="https://chat.whatsapp.com/KWamxv5ZAsK2JobCfTkkzF" target="_blank" rel="noopener" class="hover:text-green-400 transition">WhatsApp</a>
+        <a href="https://www.youtube.com/@concienciarevolucionaria" target="_blank" rel="noopener" class="hover:text-red-400 transition">YouTube</a>
+        <a href="https://www.instagram.com/concienciarevolucionaria18/" target="_blank" rel="noopener" class="hover:text-pink-400 transition">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  /* ========== CONFERENCIA.HTML — Reader Logic ========== */
+  'use strict';
+
+  const $ = s => document.querySelector(s);
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ── localStorage helpers ── */
+  const readKey     = id => `cr_read_${id}`;
+  const markRead    = id => localStorage.setItem(readKey(id), '1');
+  const isRead      = id => !!localStorage.getItem(readKey(id));
+  const saveScroll  = (id, pct) => localStorage.setItem(`cr_scroll_${id}`, pct);
+  const loadScroll  = id => parseFloat(localStorage.getItem(`cr_scroll_${id}`) || '0');
+
+  /* ── Navbar + Progress + BackToTop ── */
+  const nav     = $('#navbar');
+  const bar     = $('#progressBar');
+  const readPct = $('#readingPct');
+  const tocPct  = $('#tocPct');
+  const tocBar  = $('#tocProgressBar');
+  const btt     = $('#backToTop');
+  let   currentId  = null;
+  let   markedRead = false;
+  let   spotlightOn = false;
+
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('is-scrolled', scrollY > 24);
+    const h = document.documentElement.scrollHeight - innerHeight;
+    if (h > 0) {
+      const pct = Math.min(100, Math.round((scrollY / h) * 100));
+      bar.style.width = pct + '%';
+      if (readPct) readPct.textContent = pct + '%';
+      if (tocPct) tocPct.textContent   = pct + '%';
+      if (tocBar)  tocBar.style.width   = pct + '%';
+      if (currentId) saveScroll(currentId, pct);
+      if (!markedRead && pct >= 85 && currentId) {
+        markRead(currentId);
+        markedRead = true;
+        const badge = $('#readBadgeHeader');
+        if (badge) badge.classList.remove('hidden');
+      }
+    }
+    btt.classList.toggle('visible', scrollY > 500);
+
+    /* Scroll spy: activa el toc-link más cercano */
+    scrollSpyTOC();
+
+    /* Spotlight: resalta el párrafo visible */
+    if (spotlightOn) updateSpotlight();
+  }, { passive: true });
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ── Font size ── */
+  const fontSizes = ['font-sm', '', 'font-lg', 'font-xl'];
+  let fontIdx = parseInt(localStorage.getItem('cr-font-size') || '1', 10);
+  const prose = $('#proseContent');
+
+  function applyFont() {
+    fontSizes.forEach(c => { if (c) prose.classList.remove(c); });
+    if (fontSizes[fontIdx]) prose.classList.add(fontSizes[fontIdx]);
+    localStorage.setItem('cr-font-size', fontIdx);
+  }
+
+  $('#btnFontDown').addEventListener('click', () => { if (fontIdx > 0) { fontIdx--; applyFont(); } });
+  $('#btnFontUp').addEventListener('click',   () => { if (fontIdx < fontSizes.length - 1) { fontIdx++; applyFont(); } });
+
+  /* ── Focus mode ── */
+  $('#btnFocus').addEventListener('click', () => {
+    document.body.classList.add('focus-mode');
+  });
+  $('#exitFocusBtn').addEventListener('click', () => {
+    document.body.classList.remove('focus-mode');
+  });
+
+  /* ── Copy link ── */
+  function copyLink() {
+    navigator.clipboard.writeText(location.href).then(() => {
+      ['#btnCopyLink','#btnCopyLinkMobile'].forEach(sel => {
+        const btn = $(sel);
+        if (!btn) return;
+        const orig = btn.innerHTML;
+        btn.textContent = '¡Copiado!';
+        setTimeout(() => btn.innerHTML = orig, 1800);
+      });
+    });
+  }
+  ['#btnCopyLink','#btnCopyLinkMobile'].forEach(sel => {
+    const btn = $(sel);
+    if (btn) btn.addEventListener('click', copyLink);
+  });
+
+  /* ── Helpers ── */
+  function esc(s) {
+    return String(s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function slugify(s) {
+    return String(s).toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .replace(/[^a-z0-9]/g,'-').replace(/-+/g,'-').slice(0,48);
+  }
+  function wordCount(content) {
+    return (content || []).reduce((acc, b) => {
+      const txt = b.text || (b.items || []).join(' ');
+      return acc + txt.split(/\s+/).filter(Boolean).length;
+    }, 0);
+  }
+
+  /* ── Helpers de clasificación de bloques ── */
+  function isMantraText(txt) {
+    if (!txt) return false;
+    const clean = txt.trim();
+    if (clean.length > 60) return false;
+    /* Detecta texto con ≥4 letras iguales consecutivas: mantrams como Faaaaarrrr */
+    return /(.)\1{3,}/.test(clean);
+  }
+  function isOcrMeta(txt) {
+    if (!txt) return false;
+    const clean = txt.trim();
+    /* Líneas típicas de header OCR del PDF */
+    return clean.length < 60 && (
+      /^www\./i.test(clean) ||
+      /^conferencia\s+\d+/i.test(clean) ||
+      /^conferencias?\s+de\s+fase/i.test(clean) ||
+      /^fin\s+conferencia/i.test(clean)
+    );
+  }
+  function isConfTitleH3(txt) {
+    if (!txt) return false;
+    /* Patrón: "Conf. 01 TÍTULO EN CAPS" */
+    return /^conf\.\s*\d+/i.test(txt.trim());
+  }
+
+  /* ── Content renderer ── */
+  function renderContent(content) {
+    if (!Array.isArray(content)) return '';
+    return content.map((block) => {
+      switch (block.type) {
+
+        case 'heading': {
+          const txt = block.text || '';
+          const id  = `s-${slugify(txt)}`;
+          if (block.level <= 2) {
+            const cls = isMantraText(txt) ? ' class="prose-h2-mantra"' : '';
+            /* Mantrams no van al TOC como sección principal */
+            const toc = isMantraText(txt) ? '' : ` data-toc="${esc(txt)}"`;
+            return `<h2 id="${id}"${toc}${cls}>${esc(txt)}</h2>`;
+          }
+          const cls = isConfTitleH3(txt) ? ' class="prose-conf-title"' : '';
+          const toc = isConfTitleH3(txt) ? '' : ` data-toc="${esc(txt)}"`;
+          return `<h3 id="${id}"${toc}${cls}>${esc(txt)}</h3>`;
+        }
+
+        case 'paragraph': {
+          const txt = block.text || '';
+          const cls = isOcrMeta(txt) ? ' class="prose-meta"' : '';
+          return `<p${cls}>${esc(txt)}</p>`;
+        }
+
+        case 'list': {
+          const items = block.items || [];
+          /* Listas densas (>12 ítems): clase especial para vista en columnas */
+          const dense = items.length > 12 ? ' class="prose-list-dense"' : '';
+          return `<ul${dense}>${items.map(it => `<li>${esc(it)}</li>`).join('')}</ul>`;
+        }
+
+        case 'practice': {
+          const title = esc(block.title || 'Práctica');
+          const steps = (block.steps || block.items || [])
+            .map(s => `<li>${esc(s)}</li>`).join('');
+          return `<div class="prose-practice">
+            <p class="prose-practice-title">${title}</p>
+            <ol>${steps}</ol>
+          </div>`;
+        }
+
+        case 'mantra': {
+          const lines = (block.text || '').split('\n').filter(Boolean);
+          const inner = lines.length > 1
+            ? lines.map(l => `<p>${esc(l)}</p>`).join('')
+            : `<p>${esc(block.text || '')}</p>`;
+          return `<div class="prose-mantra">${inner}</div>`;
+        }
+
+        case 'quote':
+          return `<blockquote class="prose-quote"><p>${esc(block.text)}</p></blockquote>`;
+
+        case 'table': {
+          const ths = (block.headers||[]).map(h => `<th>${esc(h)}</th>`).join('');
+          const trs = (block.rows||[]).map(row =>
+            `<tr>${(row||[]).map(cell => `<td>${esc(cell)}</td>`).join('')}</tr>`
+          ).join('');
+          return `<div class="prose-table-wrap">
+            <table class="prose-table">
+              ${ths ? `<thead><tr>${ths}</tr></thead>` : ''}
+              <tbody>${trs}</tbody>
+            </table>
+          </div>`;
+        }
+
+        case 'image': {
+          const src     = esc(block.src || '');
+          const alt     = esc(block.alt || 'Imagen de la conferencia');
+          const caption = esc(block.caption || '');
+          if (caption) {
+            /* Layout inline: imagen flotando a la izquierda, texto a la derecha */
+            return `<p class="prose-img-inline">
+              <span class="prose-img-inline-frame">
+                <img src="${src}" alt="${alt}" loading="lazy"
+                     data-modal-src="${src}" data-modal-caption="${caption}"
+                     onclick="openImgModal(this)" />
+              </span>
+              <span class="prose-img-inline-text">${caption}</span>
+            </p>`;
+          }
+          /* Layout centrado: figura sola */
+          return `<figure class="prose-img-wrap">
+            <span class="prose-img-frame">
+              <img src="${src}" alt="${alt}" loading="lazy"
+                   data-modal-src="${src}" data-modal-caption="${caption}"
+                   onclick="openImgModal(this)" />
+            </span>
+            <button class="prose-img-btn" onclick="openImgModal(this.closest('figure').querySelector('img'))">
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+              </svg>
+              Ver en grande
+            </button>
+          </figure>`;
+        }
+
+        default: return '';
+      }
+    }).join('\n');
+  }
+
+  /* ── Modal de imagen ── */
+  function openImgModal(imgEl) {
+    const modal   = $('#imgModal');
+    const modalImg = $('#imgModalImg');
+    const cap      = $('#imgModalCaption');
+    if (!modal || !imgEl) return;
+    modalImg.src = imgEl.dataset.modalSrc || imgEl.src;
+    modalImg.alt = imgEl.alt || '';
+    cap.textContent = imgEl.dataset.modalCaption || '';
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  window.openImgModal = openImgModal;
+
+  $('#imgModalClose')?.addEventListener('click', () => {
+    $('#imgModal')?.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+  $('#imgModal')?.addEventListener('click', e => {
+    if (e.target === $('#imgModal')) {
+      $('#imgModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      $('#imgModal')?.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+
+  /* ── TOC: genera links con clase toc-link, llena desktop + mobile ── */
+  function buildTOC(conf) {
+    const toc      = $('#toc');
+    const tocMob   = $('#tocMobile');
+    const proseEl  = $('#proseContent');
+    if (!toc && !tocMob) return;
+
+    /* Detectar headings reales */
+    let anchors = [...proseEl.querySelectorAll('[data-toc]')];
+
+    /* Asegurar que practice/mantra tengan id y data-toc */
+    proseEl.querySelectorAll('.prose-practice, .prose-mantra').forEach((el, i) => {
+      if (!el.id) el.id = `block-${i}`;
+      if (!el.getAttribute('data-toc')) {
+        const title = el.querySelector('.prose-practice-title');
+        el.setAttribute('data-toc', title ? title.textContent.replace('\u2726', '').trim() : 'Práctica');
+      }
+    });
+
+    /* Si hay menos de 2 headings reales, generar secciones automáticas */
+    anchors = [...proseEl.querySelectorAll('[data-toc]')];
+    if (anchors.length < 2) {
+      const paras = [...proseEl.querySelectorAll('p')];
+      const total = paras.length;
+      if (total >= 4) {
+        const sections = [
+          { label: 'Inicio',     idx: 0 },
+          { label: 'Desarrollo', idx: Math.floor(total * 0.25) },
+          { label: 'Práctica',   idx: Math.floor(total * 0.6)  },
+          { label: 'Cierre',     idx: Math.floor(total * 0.85) }
+        ];
+        sections.forEach(({ label, idx }) => {
+          if (paras[idx] && !paras[idx].getAttribute('data-toc')) {
+            paras[idx].id = `auto-${slugify(label)}`;
+            paras[idx].setAttribute('data-toc', label);
+          }
+        });
+      }
+    }
+
+    anchors = [...proseEl.querySelectorAll('[data-toc]')];
+
+    if (anchors.length === 0) {
+      const msg = '<p class="text-[.6rem] text-bone/22 italic px-2">Navega por el contenido</p>';
+      if (toc)    toc.innerHTML    = msg;
+      if (tocMob) tocMob.innerHTML = msg;
+      return;
+    }
+
+    const html = anchors.map(el => {
+      const isH3   = el.tagName === 'H3';
+      const isAuto = !el.tagName.startsWith('H') && !el.classList.contains('prose-practice') && !el.classList.contains('prose-mantra');
+      const label  = esc(el.getAttribute('data-toc') || el.textContent.trim().slice(0, 55));
+      const indent = isH3 || isAuto ? ' style="padding-left:1.25rem;font-size:.58rem;"' : '';
+      return `<a href="#${el.id}" class="toc-link"${indent}>${label}</a>`;
+    }).join('');
+
+    if (toc)    toc.innerHTML    = html;
+    if (tocMob) tocMob.innerHTML = html;
+
+    /* Click en mobile cierra el accordion */
+    if (tocMob) {
+      tocMob.querySelectorAll('.toc-link').forEach(a => {
+        a.addEventListener('click', () => {
+          const det = $('#mobileTOC');
+          if (det) det.removeAttribute('open');
+        });
+      });
+    }
+  }
+
+  /* ── Scroll spy: resalta el toc-link activo ── */
+  function scrollSpyTOC() {
+    const proseEl = $('#proseContent');
+    if (!proseEl) return;
+    const anchors = [...proseEl.querySelectorAll('[data-toc]')];
+    if (!anchors.length) return;
+
+    let active = anchors[0].id;
+    for (const el of anchors) {
+      if (el.getBoundingClientRect().top < 140) active = el.id;
+      else break;
+    }
+
+    document.querySelectorAll('.toc-link').forEach(a => {
+      const on = a.getAttribute('href') === '#' + active;
+      a.classList.toggle('active', on);
+    });
+  }
+
+  /* ── Related by same collection first, then tags ── */
+  function buildRelated(current, all) {
+    const isYo = current.collection === 'yoes';
+    const sameCollection = all.filter(l =>
+      l.id !== current.id &&
+      (isYo ? l.collection === 'yoes' : (!l.collection && l.phase === current.phase))
+    );
+    const byTags = all.filter(l =>
+      l.id !== current.id &&
+      !sameCollection.includes(l) &&
+      (current.tags || []).some(t => (l.tags || []).includes(t))
+    );
+    const related = [...sameCollection, ...byTags].slice(0, 3);
+
+    const grid = $('#relatedGrid');
+    if (!grid) return;
+    if (related.length === 0) { $('#relatedSection').classList.add('hidden'); return; }
+
+    grid.innerHTML = related.map(l => {
+      const lbl = l.collection === 'yoes' ? 'Estudios Yoes' : `Fase ${l.phase} · ${l.number}`;
+      return `
+      <a href="conferencia.html?id=${l.id}"
+         class="block luxury-border rounded-[1.6rem] bg-white/[.03] p-5 backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/[.055]">
+        <p class="text-[.6rem] font-extrabold uppercase tracking-[.26em] text-gold2">${lbl}</p>
+        <h3 class="mt-2 text-sm font-bold leading-snug text-bone line-clamp-2">${esc(l.title)}</h3>
+        <p class="mt-2 text-xs leading-6 text-bone/45 line-clamp-2">${esc(l.summary || '')}</p>
+        <p class="mt-3 text-[.65rem] font-bold uppercase tracking-[.18em] text-gold/60">Leer →</p>
+      </a>`;
+    }).join('');
+  }
+
+  /* ── Prev/Next dentro de la misma colección ── */
+  function buildPrevNext(conf, all) {
+    const isYo = conf.collection === 'yoes';
+    const group = isYo
+      ? all.filter(l => l.collection === 'yoes')
+      : all.filter(l => !l.collection && l.phase === conf.phase);
+
+    const idx = group.findIndex(l => l.id === conf.id);
+    if (idx > 0) {
+      const prev = group[idx - 1];
+      const btnPrev = $('#btnPrev');
+      btnPrev.href = `conferencia.html?id=${prev.id}`;
+      $('#prevTitle').textContent = prev.title;
+      btnPrev.classList.remove('hidden');
+      btnPrev.classList.add('flex');
+    }
+    if (idx < group.length - 1) {
+      const next = group[idx + 1];
+      const btnNext = $('#btnNext');
+      btnNext.href = `conferencia.html?id=${next.id}`;
+      $('#nextTitle').textContent = next.title;
+      btnNext.classList.remove('hidden');
+      btnNext.classList.add('flex');
+    }
+  }
+
+  /* ── Main loader ── */
+  async function loadConference() {
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id');
+    if (!id) { show404(); return; }
+
+    try {
+      const [confRes, yoesRes] = await Promise.all([
+        fetch('data/conferencias.json'),
+        fetch('data/yoes.json').catch(() => null)
+      ]);
+      if (!confRes.ok) throw new Error(`HTTP ${confRes.status}`);
+      const confs = await confRes.json();
+      const yoes  = yoesRes && yoesRes.ok ? await yoesRes.json() : [];
+      const all   = [...confs, ...yoes];
+
+      const conf = all.find(c => c.id === id);
+      if (!conf) { show404(); return; }
+
+      currentId  = id;
+      markedRead = isRead(id);
+
+      /* ── OG meta ── */
+      document.title = `${conf.title} | Conciencia Revolucionaria`;
+      $('#metaDesc').setAttribute('content', conf.summary || '');
+      $('#ogTitle').setAttribute('content', conf.title);
+      $('#ogDesc').setAttribute('content',  conf.summary || '');
+
+      /* ── Tiempo de lectura ── */
+      const words = wordCount(conf.content);
+      const mins  = Math.max(1, Math.round(words / 200));
+      const timeStr = `${mins} min de lectura`;
+      const rtEl = $('#readingTime'); if (rtEl) rtEl.textContent = timeStr;
+      const rtHero = $('#readingTimeHero'); if (rtHero) rtHero.textContent = timeStr;
+
+      /* ── Badge de leída ── */
+      if (markedRead) $('#readBadgeHeader').classList.remove('hidden');
+
+      /* ── Breadcrumb ── */
+      const isYo = conf.collection === 'yoes';
+      $('#breadPhase').textContent = isYo ? 'Estudios Yoes' : `Fase ${conf.phase}`;
+      $('#breadTitle').textContent = conf.title;
+
+      /* ── Hero header ── */
+      const metaEl = $('#confMeta');
+      if (isYo) {
+        metaEl.innerHTML = `<span class="inline-flex items-center gap-2 rounded-full border border-ember/40 bg-ember/10 px-4 py-1.5 text-[.65rem] font-bold uppercase tracking-[.22em] text-gold2">Estudios Yoes</span>`;
+      } else {
+        metaEl.innerHTML = `
+          <span class="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-gold/8 px-4 py-1.5 text-[.65rem] font-bold uppercase tracking-[.22em] text-gold2">Fase ${conf.phase}</span>
+          <span class="text-[.65rem] font-bold uppercase tracking-[.2em] text-bone/40">Conf. ${conf.number}</span>`;
+      }
+
+      $('#confTitle').textContent   = conf.title;
+      $('#confSummary').textContent = conf.summary || '';
+      $('#confTags').innerHTML = (conf.tags || []).map(t =>
+        `<a href="conferencias.html?tag=${encodeURIComponent(t)}" class="tag-chip">${esc(t)}</a>`
+      ).join('');
+
+      /* Hero meta: página, fuente */
+      const heroPage = $('#heroPage');
+      if (heroPage && conf.page) heroPage.innerHTML = `📄 <span>Pág. ${conf.page}</span>`;
+
+      const heroSrc = $('#heroSource');
+      if (heroSrc && conf.sourcePdf) heroSrc.innerHTML = `📜 <span>${esc(conf.sourcePdf)}</span>`;
+
+      /* ── Prose ── */
+      prose.innerHTML = renderContent(conf.content);
+      applyFont();
+
+      /* ── Reveal on scroll para bloques de lectura ── */
+      initProseReveal();
+
+      /* ── TOC ── */
+      buildTOC(conf);
+
+      /* ── Prev / Next ── */
+      buildPrevNext(conf, all);
+
+      /* ── Related ── */
+      buildRelated(conf, all);
+
+      /* ── Restore scroll if partially read ── */
+      const prevPct = loadScroll(id);
+      if (prevPct > 5 && prevPct < 95) {
+        const h = document.documentElement.scrollHeight - innerHeight;
+        setTimeout(() => window.scrollTo({ top: h * prevPct / 100, behavior: 'smooth' }), 400);
+      }
+
+      /* ── Show reader ── */
+      $('#loadingState').classList.add('hidden');
+      $('#readerLayout').classList.remove('hidden');
+      $('#readerLayout').style.animation = 'fadeIn .6s ease both';
+
+    } catch (err) {
+      $('#loadingState').innerHTML = `
+        <div class="text-center px-5">
+          <p class="text-bone/30 text-sm">Error al cargar la conferencia.</p>
+          <p class="mt-2 text-bone/20 text-xs">${err.message}</p>
+          <p class="mt-2 text-bone/18 text-xs">Recuerda usar: python -m http.server 8000</p>
+          <a href="conferencias.html" class="mt-6 inline-block text-gold/60 text-sm hover:text-gold2">← Volver</a>
+        </div>`;
+    }
+  }
+
+  function show404() {
+    $('#loadingState').classList.add('hidden');
+    $('#notFoundState').classList.remove('hidden');
+  }
+
+  /* ── Spotlight: resalta el párrafo más centrado en viewport ── */
+  function updateSpotlight() {
+    const paras = [...(prose?.querySelectorAll('p') || [])];
+    if (!paras.length) return;
+    const mid = window.innerHeight / 2;
+    let closest = null, minDist = Infinity;
+    paras.forEach(p => {
+      const r = p.getBoundingClientRect();
+      const center = r.top + r.height / 2;
+      const dist = Math.abs(center - mid);
+      if (dist < minDist) { minDist = dist; closest = p; }
+    });
+    paras.forEach(p => p.classList.toggle('in-view', p === closest));
+  }
+
+  /* ── Reveal on scroll para bloques de prosa ── */
+  function initProseReveal() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const blocks = [...(prose?.children || [])];
+    blocks.forEach(el => el.classList.add('prose-block-reveal'));
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    blocks.forEach(el => obs.observe(el));
+  }
+
+  /* ── Spotlight toggle ── */
+  $('#btnSpotlight')?.addEventListener('click', () => {
+    spotlightOn = !spotlightOn;
+    prose?.classList.toggle('spotlight', spotlightOn);
+    $('#btnSpotlight')?.classList.toggle('active', spotlightOn);
+    if (!spotlightOn) prose?.querySelectorAll('p').forEach(p => p.classList.remove('in-view'));
+  });
+
+  /* ── Page fade on navigate ── */
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href]');
+    if (!a) return;
+    const href = a.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || a.target === '_blank') return;
+    e.preventDefault();
+    document.body.classList.add('page-fade-out');
+    setTimeout(() => { location.href = href; }, 230);
+  });
+
+  loadConference();
+
+  /* ── Spin keyframe ── */
+  const spinStyle = document.createElement('style');
+  spinStyle.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
+  document.head.appendChild(spinStyle);
+  </script>
+</body>
+</html>

@@ -1,0 +1,1138 @@
+[
+  {
+    "id": "fase-a-p001-img01",
+    "phase": "A",
+    "page": 1,
+    "src": "assets/conferencias/fase-a/fase-a-p001-img01.jpeg",
+    "width": 905,
+    "height": 1145,
+    "sizeKB": 272.6,
+    "alt": "Imagen de la conferencia Fase A, página 1",
+    "caption": "",
+    "relatedLectureIds": [],
+    "needsManualPlacement": true
+  },
+  {
+    "id": "fase-a-p005-img01",
+    "phase": "A",
+    "page": 5,
+    "src": "assets/conferencias/fase-a/fase-a-p005-img01.jpeg",
+    "width": 640,
+    "height": 344,
+    "sizeKB": 29.4,
+    "alt": "Imagen de la conferencia Fase A, página 5",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-36"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p007-img01",
+    "phase": "A",
+    "page": 7,
+    "src": "assets/conferencias/fase-a/fase-a-p007-img01.jpeg",
+    "width": 669,
+    "height": 380,
+    "sizeKB": 44.3,
+    "alt": "Imagen de la conferencia Fase A, página 7",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-36"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p010-img01",
+    "phase": "A",
+    "page": 10,
+    "src": "assets/conferencias/fase-a/fase-a-p010-img01.jpeg",
+    "width": 448,
+    "height": 179,
+    "sizeKB": 21.2,
+    "alt": "Imagen de la conferencia Fase A, página 10",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-02"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p011-img01",
+    "phase": "A",
+    "page": 11,
+    "src": "assets/conferencias/fase-a/fase-a-p011-img01.jpeg",
+    "width": 247,
+    "height": 350,
+    "sizeKB": 24.2,
+    "alt": "Imagen de la conferencia Fase A, página 11",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-02"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p013-img01",
+    "phase": "A",
+    "page": 13,
+    "src": "assets/conferencias/fase-a/fase-a-p013-img01.png",
+    "width": 232,
+    "height": 176,
+    "sizeKB": 4.2,
+    "alt": "Imagen de la conferencia Fase A, página 13",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-03"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p016-img01",
+    "phase": "A",
+    "page": 16,
+    "src": "assets/conferencias/fase-a/fase-a-p016-img01.jpeg",
+    "width": 797,
+    "height": 738,
+    "sizeKB": 58.4,
+    "alt": "Imagen de la conferencia Fase A, página 16",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-04"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p018-img01",
+    "phase": "A",
+    "page": 18,
+    "src": "assets/conferencias/fase-a/fase-a-p018-img01.jpeg",
+    "width": 451,
+    "height": 366,
+    "sizeKB": 13.3,
+    "alt": "Imagen de la conferencia Fase A, página 18",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-04"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p021-img01",
+    "phase": "A",
+    "page": 21,
+    "src": "assets/conferencias/fase-a/fase-a-p021-img01.jpeg",
+    "width": 664,
+    "height": 347,
+    "sizeKB": 27.4,
+    "alt": "Imagen de la conferencia Fase A, página 21",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-05"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p023-img01",
+    "phase": "A",
+    "page": 23,
+    "src": "assets/conferencias/fase-a/fase-a-p023-img01.jpeg",
+    "width": 299,
+    "height": 191,
+    "sizeKB": 7.5,
+    "alt": "Imagen de la conferencia Fase A, página 23",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-07"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p023-img02",
+    "phase": "A",
+    "page": 23,
+    "src": "assets/conferencias/fase-a/fase-a-p023-img02.jpeg",
+    "width": 230,
+    "height": 167,
+    "sizeKB": 7.1,
+    "alt": "Imagen de la conferencia Fase A, página 23",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-07"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p024-img01",
+    "phase": "A",
+    "page": 24,
+    "src": "assets/conferencias/fase-a/fase-a-p024-img01.jpeg",
+    "width": 477,
+    "height": 374,
+    "sizeKB": 19.8,
+    "alt": "Imagen de la conferencia Fase A, página 24",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-07"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p025-img01",
+    "phase": "A",
+    "page": 25,
+    "src": "assets/conferencias/fase-a/fase-a-p025-img01.png",
+    "width": 773,
+    "height": 406,
+    "sizeKB": 30.3,
+    "alt": "Imagen de la conferencia Fase A, página 25",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-08"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p027-img01",
+    "phase": "A",
+    "page": 27,
+    "src": "assets/conferencias/fase-a/fase-a-p027-img01.png",
+    "width": 157,
+    "height": 156,
+    "sizeKB": 4.0,
+    "alt": "Imagen de la conferencia Fase A, página 27",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-08"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p027-img02",
+    "phase": "A",
+    "page": 27,
+    "src": "assets/conferencias/fase-a/fase-a-p027-img02.png",
+    "width": 158,
+    "height": 160,
+    "sizeKB": 6.0,
+    "alt": "Imagen de la conferencia Fase A, página 27",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-08"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p028-img01",
+    "phase": "A",
+    "page": 28,
+    "src": "assets/conferencias/fase-a/fase-a-p028-img01.jpeg",
+    "width": 469,
+    "height": 311,
+    "sizeKB": 11.5,
+    "alt": "Imagen de la conferencia Fase A, página 28",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-08"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p032-img01",
+    "phase": "A",
+    "page": 32,
+    "src": "assets/conferencias/fase-a/fase-a-p032-img01.png",
+    "width": 728,
+    "height": 384,
+    "sizeKB": 12.8,
+    "alt": "Imagen de la conferencia Fase A, página 32",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-10"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p034-img01",
+    "phase": "A",
+    "page": 34,
+    "src": "assets/conferencias/fase-a/fase-a-p034-img01.jpeg",
+    "width": 406,
+    "height": 491,
+    "sizeKB": 17.1,
+    "alt": "Imagen de la conferencia Fase A, página 34",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-10"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p035-img01",
+    "phase": "A",
+    "page": 35,
+    "src": "assets/conferencias/fase-a/fase-a-p035-img01.jpeg",
+    "width": 399,
+    "height": 443,
+    "sizeKB": 15.1,
+    "alt": "Imagen de la conferencia Fase A, página 35",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-10"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p037-img01",
+    "phase": "A",
+    "page": 37,
+    "src": "assets/conferencias/fase-a/fase-a-p037-img01.jpeg",
+    "width": 124,
+    "height": 389,
+    "sizeKB": 9.8,
+    "alt": "Imagen de la conferencia Fase A, página 37",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-11"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p038-img01",
+    "phase": "A",
+    "page": 38,
+    "src": "assets/conferencias/fase-a/fase-a-p038-img01.jpeg",
+    "width": 664,
+    "height": 538,
+    "sizeKB": 20.6,
+    "alt": "Imagen de la conferencia Fase A, página 38",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-11"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p044-img01",
+    "phase": "A",
+    "page": 44,
+    "src": "assets/conferencias/fase-a/fase-a-p044-img01.jpeg",
+    "width": 350,
+    "height": 336,
+    "sizeKB": 10.8,
+    "alt": "Imagen de la conferencia Fase A, página 44",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-13"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p045-img01",
+    "phase": "A",
+    "page": 45,
+    "src": "assets/conferencias/fase-a/fase-a-p045-img01.jpeg",
+    "width": 260,
+    "height": 188,
+    "sizeKB": 4.6,
+    "alt": "Imagen de la conferencia Fase A, página 45",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-13"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p045-img02",
+    "phase": "A",
+    "page": 45,
+    "src": "assets/conferencias/fase-a/fase-a-p045-img02.jpeg",
+    "width": 392,
+    "height": 183,
+    "sizeKB": 6.3,
+    "alt": "Imagen de la conferencia Fase A, página 45",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-13"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p053-img01",
+    "phase": "A",
+    "page": 53,
+    "src": "assets/conferencias/fase-a/fase-a-p053-img01.png",
+    "width": 454,
+    "height": 282,
+    "sizeKB": 7.9,
+    "alt": "Imagen de la conferencia Fase A, página 53",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-15"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p060-img01",
+    "phase": "A",
+    "page": 60,
+    "src": "assets/conferencias/fase-a/fase-a-p060-img01.jpeg",
+    "width": 216,
+    "height": 221,
+    "sizeKB": 6.6,
+    "alt": "Imagen de la conferencia Fase A, página 60",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-17"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p074-img01",
+    "phase": "A",
+    "page": 74,
+    "src": "assets/conferencias/fase-a/fase-a-p074-img01.jpeg",
+    "width": 619,
+    "height": 434,
+    "sizeKB": 30.3,
+    "alt": "Imagen de la conferencia Fase A, página 74",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-21"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p088-img01",
+    "phase": "A",
+    "page": 88,
+    "src": "assets/conferencias/fase-a/fase-a-p088-img01.jpeg",
+    "width": 363,
+    "height": 370,
+    "sizeKB": 15.6,
+    "alt": "Imagen de la conferencia Fase A, página 88",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-24"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p088-img02",
+    "phase": "A",
+    "page": 88,
+    "src": "assets/conferencias/fase-a/fase-a-p088-img02.png",
+    "width": 283,
+    "height": 286,
+    "sizeKB": 5.8,
+    "alt": "Imagen de la conferencia Fase A, página 88",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-24"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p093-img01",
+    "phase": "A",
+    "page": 93,
+    "src": "assets/conferencias/fase-a/fase-a-p093-img01.jpeg",
+    "width": 444,
+    "height": 419,
+    "sizeKB": 21.5,
+    "alt": "Imagen de la conferencia Fase A, página 93",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-26"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p094-img01",
+    "phase": "A",
+    "page": 94,
+    "src": "assets/conferencias/fase-a/fase-a-p094-img01.jpeg",
+    "width": 321,
+    "height": 423,
+    "sizeKB": 17.6,
+    "alt": "Imagen de la conferencia Fase A, página 94",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-27"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p096-img01",
+    "phase": "A",
+    "page": 96,
+    "src": "assets/conferencias/fase-a/fase-a-p096-img01.jpeg",
+    "width": 858,
+    "height": 952,
+    "sizeKB": 194.8,
+    "alt": "Imagen de la conferencia Fase A, página 96",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-28"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p099-img01",
+    "phase": "A",
+    "page": 99,
+    "src": "assets/conferencias/fase-a/fase-a-p099-img01.jpeg",
+    "width": 442,
+    "height": 313,
+    "sizeKB": 11.9,
+    "alt": "Imagen de la conferencia Fase A, página 99",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-29"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p104-img01",
+    "phase": "A",
+    "page": 104,
+    "src": "assets/conferencias/fase-a/fase-a-p104-img01.jpeg",
+    "width": 316,
+    "height": 251,
+    "sizeKB": 9.1,
+    "alt": "Imagen de la conferencia Fase A, página 104",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-29"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p110-img01",
+    "phase": "A",
+    "page": 110,
+    "src": "assets/conferencias/fase-a/fase-a-p110-img01.jpeg",
+    "width": 305,
+    "height": 286,
+    "sizeKB": 13.2,
+    "alt": "Imagen de la conferencia Fase A, página 110",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-32"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p111-img01",
+    "phase": "A",
+    "page": 111,
+    "src": "assets/conferencias/fase-a/fase-a-p111-img01.jpeg",
+    "width": 497,
+    "height": 471,
+    "sizeKB": 24.6,
+    "alt": "Imagen de la conferencia Fase A, página 111",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-33"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p112-img01",
+    "phase": "A",
+    "page": 112,
+    "src": "assets/conferencias/fase-a/fase-a-p112-img01.png",
+    "width": 824,
+    "height": 461,
+    "sizeKB": 32.8,
+    "alt": "Imagen de la conferencia Fase A, página 112",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-33"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p125-img01",
+    "phase": "A",
+    "page": 125,
+    "src": "assets/conferencias/fase-a/fase-a-p125-img01.jpeg",
+    "width": 217,
+    "height": 387,
+    "sizeKB": 7.3,
+    "alt": "Imagen de la conferencia Fase A, página 125",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-37"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p137-img01",
+    "phase": "A",
+    "page": 137,
+    "src": "assets/conferencias/fase-a/fase-a-p137-img01.jpeg",
+    "width": 220,
+    "height": 215,
+    "sizeKB": 4.8,
+    "alt": "Imagen de la conferencia Fase A, página 137",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-41"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p138-img01",
+    "phase": "A",
+    "page": 138,
+    "src": "assets/conferencias/fase-a/fase-a-p138-img01.jpeg",
+    "width": 153,
+    "height": 193,
+    "sizeKB": 4.2,
+    "alt": "Imagen de la conferencia Fase A, página 138",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-41"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p138-img02",
+    "phase": "A",
+    "page": 138,
+    "src": "assets/conferencias/fase-a/fase-a-p138-img02.jpeg",
+    "width": 262,
+    "height": 248,
+    "sizeKB": 8.8,
+    "alt": "Imagen de la conferencia Fase A, página 138",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-41"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p140-img01",
+    "phase": "A",
+    "page": 140,
+    "src": "assets/conferencias/fase-a/fase-a-p140-img01.jpeg",
+    "width": 250,
+    "height": 566,
+    "sizeKB": 17.2,
+    "alt": "Imagen de la conferencia Fase A, página 140",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-41"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p155-img01",
+    "phase": "A",
+    "page": 155,
+    "src": "assets/conferencias/fase-a/fase-a-p155-img01.jpeg",
+    "width": 306,
+    "height": 231,
+    "sizeKB": 7.5,
+    "alt": "Imagen de la conferencia Fase A, página 155",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-46"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p164-img01",
+    "phase": "A",
+    "page": 164,
+    "src": "assets/conferencias/fase-a/fase-a-p164-img01.jpeg",
+    "width": 286,
+    "height": 240,
+    "sizeKB": 8.0,
+    "alt": "Imagen de la conferencia Fase A, página 164",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-49"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p165-img01",
+    "phase": "A",
+    "page": 165,
+    "src": "assets/conferencias/fase-a/fase-a-p165-img01.jpeg",
+    "width": 283,
+    "height": 280,
+    "sizeKB": 8.8,
+    "alt": "Imagen de la conferencia Fase A, página 165",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-49"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p166-img01",
+    "phase": "A",
+    "page": 166,
+    "src": "assets/conferencias/fase-a/fase-a-p166-img01.jpeg",
+    "width": 246,
+    "height": 257,
+    "sizeKB": 7.8,
+    "alt": "Imagen de la conferencia Fase A, página 166",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-49"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p167-img01",
+    "phase": "A",
+    "page": 167,
+    "src": "assets/conferencias/fase-a/fase-a-p167-img01.jpeg",
+    "width": 234,
+    "height": 270,
+    "sizeKB": 6.4,
+    "alt": "Imagen de la conferencia Fase A, página 167",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-49"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p167-img02",
+    "phase": "A",
+    "page": 167,
+    "src": "assets/conferencias/fase-a/fase-a-p167-img02.jpeg",
+    "width": 324,
+    "height": 296,
+    "sizeKB": 13.3,
+    "alt": "Imagen de la conferencia Fase A, página 167",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-49"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p168-img01",
+    "phase": "A",
+    "page": 168,
+    "src": "assets/conferencias/fase-a/fase-a-p168-img01.png",
+    "width": 932,
+    "height": 699,
+    "sizeKB": 42.5,
+    "alt": "Imagen de la conferencia Fase A, página 168",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-49"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-a-p168-img02",
+    "phase": "A",
+    "page": 168,
+    "src": "assets/conferencias/fase-a/fase-a-p168-img02.jpeg",
+    "width": 284,
+    "height": 177,
+    "sizeKB": 6.9,
+    "alt": "Imagen de la conferencia Fase A, página 168",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-a-49"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p001-img01",
+    "phase": "B",
+    "page": 1,
+    "src": "assets/conferencias/fase-b/fase-b-p001-img01.jpeg",
+    "width": 564,
+    "height": 690,
+    "sizeKB": 164.6,
+    "alt": "Imagen de la conferencia Fase B, página 1",
+    "caption": "",
+    "relatedLectureIds": [],
+    "needsManualPlacement": true
+  },
+  {
+    "id": "fase-b-p004-img01",
+    "phase": "B",
+    "page": 4,
+    "src": "assets/conferencias/fase-b/fase-b-p004-img01.png",
+    "width": 390,
+    "height": 255,
+    "sizeKB": 19.4,
+    "alt": "Imagen de la conferencia Fase B, página 4",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-01"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p013-img01",
+    "phase": "B",
+    "page": 13,
+    "src": "assets/conferencias/fase-b/fase-b-p013-img01.png",
+    "width": 441,
+    "height": 365,
+    "sizeKB": 17.5,
+    "alt": "Imagen de la conferencia Fase B, página 13",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-05"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p013-img02",
+    "phase": "B",
+    "page": 13,
+    "src": "assets/conferencias/fase-b/fase-b-p013-img02.png",
+    "width": 288,
+    "height": 199,
+    "sizeKB": 4.0,
+    "alt": "Imagen de la conferencia Fase B, página 13",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-05"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p015-img01",
+    "phase": "B",
+    "page": 15,
+    "src": "assets/conferencias/fase-b/fase-b-p015-img01.jpeg",
+    "width": 130,
+    "height": 153,
+    "sizeKB": 4.1,
+    "alt": "Imagen de la conferencia Fase B, página 15",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-06"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p017-img01",
+    "phase": "B",
+    "page": 17,
+    "src": "assets/conferencias/fase-b/fase-b-p017-img01.png",
+    "width": 232,
+    "height": 275,
+    "sizeKB": 15.3,
+    "alt": "Imagen de la conferencia Fase B, página 17",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-06"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p017-img02",
+    "phase": "B",
+    "page": 17,
+    "src": "assets/conferencias/fase-b/fase-b-p017-img02.png",
+    "width": 258,
+    "height": 257,
+    "sizeKB": 16.1,
+    "alt": "Imagen de la conferencia Fase B, página 17",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-06"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p017-img03",
+    "phase": "B",
+    "page": 17,
+    "src": "assets/conferencias/fase-b/fase-b-p017-img03.png",
+    "width": 252,
+    "height": 268,
+    "sizeKB": 16.4,
+    "alt": "Imagen de la conferencia Fase B, página 17",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-06"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p017-img04",
+    "phase": "B",
+    "page": 17,
+    "src": "assets/conferencias/fase-b/fase-b-p017-img04.png",
+    "width": 270,
+    "height": 248,
+    "sizeKB": 29.4,
+    "alt": "Imagen de la conferencia Fase B, página 17",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-06"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p017-img05",
+    "phase": "B",
+    "page": 17,
+    "src": "assets/conferencias/fase-b/fase-b-p017-img05.png",
+    "width": 251,
+    "height": 155,
+    "sizeKB": 13.3,
+    "alt": "Imagen de la conferencia Fase B, página 17",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-06"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p017-img06",
+    "phase": "B",
+    "page": 17,
+    "src": "assets/conferencias/fase-b/fase-b-p017-img06.png",
+    "width": 258,
+    "height": 263,
+    "sizeKB": 12.1,
+    "alt": "Imagen de la conferencia Fase B, página 17",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-06"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p017-img07",
+    "phase": "B",
+    "page": 17,
+    "src": "assets/conferencias/fase-b/fase-b-p017-img07.png",
+    "width": 242,
+    "height": 253,
+    "sizeKB": 15.5,
+    "alt": "Imagen de la conferencia Fase B, página 17",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-06"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p017-img08",
+    "phase": "B",
+    "page": 17,
+    "src": "assets/conferencias/fase-b/fase-b-p017-img08.png",
+    "width": 262,
+    "height": 388,
+    "sizeKB": 17.2,
+    "alt": "Imagen de la conferencia Fase B, página 17",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-06"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p031-img01",
+    "phase": "B",
+    "page": 31,
+    "src": "assets/conferencias/fase-b/fase-b-p031-img01.png",
+    "width": 149,
+    "height": 379,
+    "sizeKB": 13.1,
+    "alt": "Imagen de la conferencia Fase B, página 31",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-14"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p042-img01",
+    "phase": "B",
+    "page": 42,
+    "src": "assets/conferencias/fase-b/fase-b-p042-img01.jpeg",
+    "width": 440,
+    "height": 199,
+    "sizeKB": 12.2,
+    "alt": "Imagen de la conferencia Fase B, página 42",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-18"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p043-img01",
+    "phase": "B",
+    "page": 43,
+    "src": "assets/conferencias/fase-b/fase-b-p043-img01.png",
+    "width": 198,
+    "height": 268,
+    "sizeKB": 31.7,
+    "alt": "Imagen de la conferencia Fase B, página 43",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-19"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p044-img01",
+    "phase": "B",
+    "page": 44,
+    "src": "assets/conferencias/fase-b/fase-b-p044-img01.jpeg",
+    "width": 250,
+    "height": 311,
+    "sizeKB": 20.6,
+    "alt": "Imagen de la conferencia Fase B, página 44",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-19"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p050-img01",
+    "phase": "B",
+    "page": 50,
+    "src": "assets/conferencias/fase-b/fase-b-p050-img01.jpeg",
+    "width": 173,
+    "height": 279,
+    "sizeKB": 11.0,
+    "alt": "Imagen de la conferencia Fase B, página 50",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-23"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p050-img02",
+    "phase": "B",
+    "page": 50,
+    "src": "assets/conferencias/fase-b/fase-b-p050-img02.jpeg",
+    "width": 214,
+    "height": 223,
+    "sizeKB": 13.6,
+    "alt": "Imagen de la conferencia Fase B, página 50",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-23"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p050-img03",
+    "phase": "B",
+    "page": 50,
+    "src": "assets/conferencias/fase-b/fase-b-p050-img03.jpeg",
+    "width": 269,
+    "height": 434,
+    "sizeKB": 56.6,
+    "alt": "Imagen de la conferencia Fase B, página 50",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-23"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p051-img01",
+    "phase": "B",
+    "page": 51,
+    "src": "assets/conferencias/fase-b/fase-b-p051-img01.png",
+    "width": 183,
+    "height": 126,
+    "sizeKB": 18.7,
+    "alt": "Imagen de la conferencia Fase B, página 51",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-23"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p051-img02",
+    "phase": "B",
+    "page": 51,
+    "src": "assets/conferencias/fase-b/fase-b-p051-img02.jpeg",
+    "width": 211,
+    "height": 198,
+    "sizeKB": 11.1,
+    "alt": "Imagen de la conferencia Fase B, página 51",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-23"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p052-img01",
+    "phase": "B",
+    "page": 52,
+    "src": "assets/conferencias/fase-b/fase-b-p052-img01.png",
+    "width": 155,
+    "height": 207,
+    "sizeKB": 12.9,
+    "alt": "Imagen de la conferencia Fase B, página 52",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-24"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p052-img02",
+    "phase": "B",
+    "page": 52,
+    "src": "assets/conferencias/fase-b/fase-b-p052-img02.png",
+    "width": 190,
+    "height": 206,
+    "sizeKB": 13.1,
+    "alt": "Imagen de la conferencia Fase B, página 52",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-24"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p057-img01",
+    "phase": "B",
+    "page": 57,
+    "src": "assets/conferencias/fase-b/fase-b-p057-img01.png",
+    "width": 136,
+    "height": 282,
+    "sizeKB": 16.1,
+    "alt": "Imagen de la conferencia Fase B, página 57",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-25"
+    ],
+    "needsManualPlacement": false
+  },
+  {
+    "id": "fase-b-p057-img02",
+    "phase": "B",
+    "page": 57,
+    "src": "assets/conferencias/fase-b/fase-b-p057-img02.jpeg",
+    "width": 526,
+    "height": 921,
+    "sizeKB": 36.1,
+    "alt": "Imagen de la conferencia Fase B, página 57",
+    "caption": "",
+    "relatedLectureIds": [
+      "fase-b-25"
+    ],
+    "needsManualPlacement": false
+  }
+]

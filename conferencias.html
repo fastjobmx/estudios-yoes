@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Biblioteca completa — Conciencia Revolucionaria. 74 conferencias de Fase A y Fase B y los 6 Estudios de los Yoes." />
+  <title>Biblioteca | Conciencia Revolucionaria</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Biblioteca | Conciencia Revolucionaria" />
+  <meta property="og:description" content="74 conferencias completas de Fase A y Fase B. 6 Estudios de los Yoes. Buscador en tiempo real." />
+  <meta property="og:image"       content="assets/og-image.svg" />
+  <meta name="twitter:card"       content="summary_large_image" />
+
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="cr-styles.css" />
+  <style>
+    .tag-filter-bar { display: flex; flex-wrap: wrap; gap: .5rem; }
+    #lectureGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+    #lectureGrid.list-mode {
+      grid-template-columns: 1fr;
+    }
+    #lectureGrid.list-mode .lecture-card {
+      flex-direction: row;
+      align-items: center;
+      gap: 1.2rem;
+      padding: .9rem 1.2rem;
+      border-radius: 1.1rem;
+    }
+    #lectureGrid.list-mode .lecture-card .card-summary,
+    #lectureGrid.list-mode .lecture-card .card-tags { display: none; }
+    #lectureGrid.list-mode .lecture-card h2 { font-size: .9rem; }
+    @media (max-width: 640px) { #lectureGrid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+
+<body class="bg-void text-bone selection:bg-gold selection:text-void">
+  <div id="progressBar"></div>
+  <div id="cursorGlow" class="hidden md:block"></div>
+
+  <!-- ══ NAVBAR ══ -->
+  <header id="navbar">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-10">
+      <a href="index.html" class="flex items-center gap-3" aria-label="Inicio">
+        <img src="assets/logo.png" alt="Logo" class="h-10 w-10 object-contain"
+             onerror="this.onerror=null;this.src='assets/logo.svg';" />
+        <span class="hidden text-[.7rem] font-semibold uppercase tracking-[.28em] text-bone/75 sm:block leading-tight">
+          Conciencia<br><span class="text-gold">Revolucionaria</span>
+        </span>
+      </a>
+
+      <div class="hidden items-center gap-7 text-[.7rem] font-bold uppercase tracking-[.22em] text-bone/55 md:flex">
+        <a class="transition hover:text-gold2" href="index.html">Inicio</a>
+        <a class="text-gold2 border-b border-gold/40 pb-px" href="conferencias.html">Biblioteca</a>
+        <a class="transition hover:text-gold2" href="index.html#yoes">Yoes</a>
+      </div>
+
+      <button id="menuBtn" class="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 md:hidden" aria-label="Abrir menú" aria-expanded="false">
+        <svg width="18" height="12" viewBox="0 0 18 12" fill="none">
+          <rect y="0" width="18" height="1.5" rx=".75" fill="currentColor"/>
+          <rect y="5.25" width="12" height="1.5" rx=".75" fill="currentColor"/>
+          <rect y="10.5" width="18" height="1.5" rx=".75" fill="currentColor"/>
+        </svg>
+      </button>
+    </nav>
+    <div id="mobileMenu" class="hidden border-t border-white/8 bg-void/96 px-5 py-5 backdrop-blur-xl md:hidden">
+      <div class="grid gap-1 text-sm font-bold uppercase tracking-[.22em] text-bone/65">
+        <a href="index.html"        class="rounded-xl px-4 py-3 hover:bg-white/5">Inicio</a>
+        <a href="conferencias.html" class="rounded-xl px-4 py-3 text-gold2 hover:bg-white/5">Biblioteca</a>
+        <a href="index.html#yoes"   class="rounded-xl px-4 py-3 hover:bg-white/5">Yoes</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 px-5 lg:px-10">
+    <div class="mx-auto max-w-7xl">
+
+      <!-- Header -->
+      <div class="reveal mb-12">
+        <a href="index.html" class="inline-flex items-center gap-2 text-[.68rem] font-bold uppercase tracking-[.22em] text-bone/40 hover:text-gold2 transition mb-6">
+          ← Volver al inicio
+        </a>
+        <p class="text-[.7rem] font-extrabold uppercase tracking-[.34em] text-gold2">Biblioteca Doctrinal</p>
+        <h1 class="mt-4 font-serif leading-[.88] tracking-[-.04em]" style="font-size:clamp(2.6rem,7vw,5.5rem);">
+          Todas las Conferencias
+        </h1>
+        <p class="mt-5 max-w-2xl text-sm leading-7 text-bone/50">
+          Fase A (50 conferencias) y Fase B (25 lecciones prácticas). Usa el buscador y los filtros para encontrar cualquier tema. Haz clic en una tarjeta para leer la conferencia completa.
+        </p>
+      </div>
+
+      <!-- Controls -->
+      <div class="reveal sticky top-20 z-30 rounded-[1.8rem] border border-white/10 bg-void/80 p-4 backdrop-blur-2xl mb-8">
+        <div class="flex flex-col gap-4 md:flex-row md:items-center">
+          <!-- Search -->
+          <div class="relative flex-1">
+            <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-bone/30" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input id="searchInput" type="search"
+              placeholder="Buscar por título, tema, etiqueta..."
+              class="w-full rounded-2xl border border-white/10 bg-obsidian/70 py-3 pl-10 pr-4 text-sm text-bone outline-none transition placeholder:text-bone/28 focus:border-gold/45" />
+          </div>
+          <!-- Collection pills -->
+          <div class="flex rounded-2xl border border-white/10 bg-obsidian/60 p-1 shrink-0">
+            <button class="phase-pill active" data-phase="all">Todo</button>
+            <button class="phase-pill" data-phase="A">Fase A</button>
+            <button class="phase-pill" data-phase="B">Fase B</button>
+            <button class="phase-pill" data-phase="Y">Yoes</button>
+          </div>
+          <!-- View toggle -->
+          <div class="flex rounded-2xl border border-white/10 bg-obsidian/60 p-1 shrink-0 gap-0.5">
+            <button id="btnGrid" class="phase-pill active px-3" aria-label="Vista grilla">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+            </button>
+            <button id="btnList" class="phase-pill px-3" aria-label="Vista lista">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tag filters -->
+        <div class="tag-filter-bar mt-3 pt-3 border-t border-white/8" id="tagFilters"></div>
+
+        <!-- Count -->
+        <p id="visibleCount" class="mt-3 text-[.65rem] font-bold uppercase tracking-[.2em] text-bone/35"></p>
+      </div>
+
+      <!-- Skeleton mejorado (imita tarjeta real) -->
+      <div id="skeleton" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;">
+        <div class="skeleton-card" style="animation-delay:0s">
+          <div class="skeleton-line w-1-3 h-sm"></div>
+          <div class="skeleton-line w-full" style="height:1.1rem;margin-top:.5rem;"></div>
+          <div class="skeleton-line w-3-4"></div>
+          <div class="skeleton-line w-full"></div>
+          <div class="skeleton-line w-3-4"></div>
+          <div class="flex gap-2 mt-3">
+            <div class="skeleton-line w-1-3" style="height:.6rem;margin-bottom:0;"></div>
+            <div class="skeleton-line w-1-3" style="height:.6rem;margin-bottom:0;"></div>
+          </div>
+        </div>
+        <div class="skeleton-card" style="animation-delay:.1s">
+          <div class="skeleton-line w-1-3 h-sm"></div>
+          <div class="skeleton-line w-full" style="height:1.1rem;margin-top:.5rem;"></div>
+          <div class="skeleton-line w-3-4"></div>
+          <div class="skeleton-line w-full"></div>
+          <div class="skeleton-line w-1-2"></div>
+          <div class="flex gap-2 mt-3">
+            <div class="skeleton-line w-1-3" style="height:.6rem;margin-bottom:0;"></div>
+            <div class="skeleton-line w-1-2" style="height:.6rem;margin-bottom:0;"></div>
+          </div>
+        </div>
+        <div class="skeleton-card" style="animation-delay:.2s">
+          <div class="skeleton-line w-1-3 h-sm"></div>
+          <div class="skeleton-line w-full" style="height:1.1rem;margin-top:.5rem;"></div>
+          <div class="skeleton-line w-full"></div>
+          <div class="skeleton-line w-3-4"></div>
+          <div class="skeleton-line w-1-2"></div>
+          <div class="flex gap-2 mt-3">
+            <div class="skeleton-line w-1-2" style="height:.6rem;margin-bottom:0;"></div>
+          </div>
+        </div>
+        <div class="skeleton-card hidden md:block" style="animation-delay:.3s">
+          <div class="skeleton-line w-1-3 h-sm"></div>
+          <div class="skeleton-line w-full" style="height:1.1rem;margin-top:.5rem;"></div>
+          <div class="skeleton-line w-full"></div>
+          <div class="skeleton-line w-3-4"></div>
+          <div class="skeleton-line w-full"></div>
+          <div class="flex gap-2 mt-3">
+            <div class="skeleton-line w-1-3" style="height:.6rem;margin-bottom:0;"></div>
+            <div class="skeleton-line w-1-3" style="height:.6rem;margin-bottom:0;"></div>
+          </div>
+        </div>
+        <div class="skeleton-card hidden lg:block" style="animation-delay:.4s">
+          <div class="skeleton-line w-1-2 h-sm"></div>
+          <div class="skeleton-line w-full" style="height:1.1rem;margin-top:.5rem;"></div>
+          <div class="skeleton-line w-3-4"></div>
+          <div class="skeleton-line w-full"></div>
+          <div class="flex gap-2 mt-3">
+            <div class="skeleton-line w-1-2" style="height:.6rem;margin-bottom:0;"></div>
+          </div>
+        </div>
+        <div class="skeleton-card hidden lg:block" style="animation-delay:.5s">
+          <div class="skeleton-line w-1-3 h-sm"></div>
+          <div class="skeleton-line w-full" style="height:1.1rem;margin-top:.5rem;"></div>
+          <div class="skeleton-line w-full"></div>
+          <div class="skeleton-line w-1-2"></div>
+          <div class="flex gap-2 mt-3">
+            <div class="skeleton-line w-1-3" style="height:.6rem;margin-bottom:0;"></div>
+            <div class="skeleton-line w-1-3" style="height:.6rem;margin-bottom:0;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards grid -->
+      <div id="lectureGrid" class="hidden"></div>
+
+      <!-- Empty state -->
+      <div id="emptyState" class="hidden py-24 text-center">
+        <p class="font-serif text-4xl text-bone/25">Sin resultados</p>
+        <p class="mt-4 text-sm text-bone/35">Intenta con otro término o limpia los filtros.</p>
+        <button onclick="clearFilters()" class="mt-6 rounded-full border border-white/15 px-6 py-3 text-xs font-bold uppercase tracking-[.2em] text-bone/55 transition hover:border-gold/40 hover:text-gold2">
+          Limpiar filtros
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer minimal -->
+  <footer class="border-t border-white/8 px-5 py-8 lg:px-10">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-[.65rem] font-bold uppercase tracking-[.2em] text-bone/35 md:flex-row">
+      <span>© <span id="year"></span> Conciencia Revolucionaria</span>
+      <div class="flex gap-6">
+        <a href="index.html" class="hover:text-gold2 transition">Inicio</a>
+        <a href="https://chat.whatsapp.com/KWamxv5ZAsK2JobCfTkkzF" target="_blank" rel="noopener" class="hover:text-green-400 transition">WhatsApp</a>
+        <a href="https://www.youtube.com/@concienciarevolucionaria" target="_blank" rel="noopener" class="hover:text-red-400 transition">YouTube</a>
+        <a href="https://www.instagram.com/concienciarevolucionaria18/" target="_blank" rel="noopener" class="hover:text-pink-400 transition">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="Volver arriba">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script>
+  /* ========== CONFERENCIAS.HTML — Main Logic ========== */
+  'use strict';
+
+  /* ── Helpers ── */
+  const $  = s => document.querySelector(s);
+  const $$ = s => [...document.querySelectorAll(s)];
+  const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const readKey = id => `cr_read_${id}`;
+  const markRead = id => localStorage.setItem(readKey(id), '1');
+  const isRead = id => !!localStorage.getItem(readKey(id));
+
+  /* ── State ── */
+  let lectures    = [];
+  let activePhase = 'all';
+  let activeTags  = new Set();
+  let searchQ     = '';
+  let viewMode    = 'grid';  /* 'grid' | 'list' */
+
+  /* ── Init UI ── */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ── Navbar + Progress + BackToTop ── */
+  const nav = document.getElementById('navbar');
+  const bar = document.getElementById('progressBar');
+  const btt = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('is-scrolled', scrollY > 24);
+    const h = document.documentElement.scrollHeight - innerHeight;
+    if (h > 0) bar.style.width = Math.min(100, (scrollY / h) * 100) + '%';
+    btt.classList.toggle('visible', scrollY > 500);
+  }, { passive: true });
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ── Mobile menu ── */
+  const menuBtn    = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('hidden') === false;
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+  mobileMenu.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => mobileMenu.classList.add('hidden'))
+  );
+
+  /* ── Reveal ── */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => {
+    io.observe(el);
+    setTimeout(() => el.classList.add('visible'), 100);
+  });
+
+  /* ── Cursor glow ── */
+  const glow = document.getElementById('cursorGlow');
+  if (glow) window.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top  = e.clientY + 'px';
+  }, { passive: true });
+
+  /* ── View toggle ── */
+  document.getElementById('btnGrid').addEventListener('click', () => {
+    viewMode = 'grid';
+    document.getElementById('lectureGrid').classList.remove('list-mode');
+    document.getElementById('btnGrid').classList.add('active');
+    document.getElementById('btnList').classList.remove('active');
+  });
+  document.getElementById('btnList').addEventListener('click', () => {
+    viewMode = 'list';
+    document.getElementById('lectureGrid').classList.add('list-mode');
+    document.getElementById('btnList').classList.add('active');
+    document.getElementById('btnGrid').classList.remove('active');
+  });
+
+  /* ── Phase / collection filter ── */
+  $$('.phase-pill[data-phase]').forEach(btn => btn.addEventListener('click', () => {
+    $$('.phase-pill[data-phase]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activePhase = btn.dataset.phase;
+    activeTags.clear();
+    $$('.tag-chip[data-tag]').forEach(b => b.classList.remove('active'));
+    buildTagFilters();
+    renderCards();
+  }));
+
+  /* ── Search ── */
+  document.getElementById('searchInput').addEventListener('input', e => {
+    searchQ = norm(e.target.value.trim());
+    renderCards();
+  });
+
+  /* ── Relevance score: title > tags > summary > content ── */
+  function scoreItem(l, q) {
+    if (!q) return 1;
+    const nTitle   = norm(l.title   || '');
+    const nTags    = norm((l.tags   || []).join(' '));
+    const nSummary = norm(l.summary || '');
+    const nContent = norm((l.content || []).map(b => b.text || (b.items||[]).join(' ')).join(' '));
+    if (nTitle.includes(q))   return 4;
+    if (nTags.includes(q))    return 3;
+    if (nSummary.includes(q)) return 2;
+    if (nContent.includes(q)) return 1;
+    return 0;
+  }
+
+  /* ── Build tag filters ── */
+  function buildTagFilters() {
+    const allTags = new Set();
+    const phaseItems = activePhase === 'all' ? lectures
+      : activePhase === 'Y' ? lectures.filter(l => l.collection === 'yoes')
+      : lectures.filter(l => l.phase === activePhase);
+    phaseItems.forEach(l => (l.tags||[]).forEach(t => allTags.add(t)));
+    const tagBar = document.getElementById('tagFilters');
+    tagBar.innerHTML = '';
+    [...allTags].sort().forEach(tag => {
+      const btn = document.createElement('button');
+      btn.className = 'tag-chip';
+      btn.textContent = tag;
+      btn.dataset.tag = tag;
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('active');
+        btn.classList.contains('active') ? activeTags.add(tag) : activeTags.delete(tag);
+        renderCards();
+      });
+      tagBar.appendChild(btn);
+    });
+  }
+
+  /* ── Card HTML ── */
+  function cardHTML(l) {
+    const read        = isRead(l.id);
+    const isYo        = l.collection === 'yoes';
+    const incomplete  = l.status === 'incompleto';
+    const hasImages   = (l.images && l.images.length > 0)
+                     || (l.content || []).some(b => b.type === 'image');
+    const phaseLbl    = isYo ? 'Estudios Yoes' : `Fase ${l.phase} · Conf. ${l.number}`;
+    const pageLbl     = l.page ? `p. ${l.page}` : '';
+    const tagsHtml    = (l.tags||[]).slice(0,4).map(t =>
+      `<span class="tag-chip card-tags" style="font-size:.6rem;padding:.25rem .65rem;">${t}</span>`
+    ).join('');
+    const readBadge = read
+      ? `<span class="read-badge shrink-0"><svg width="8" height="8" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.793l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>Leída</span>`
+      : '';
+    const imgBadge = hasImages
+      ? `<span style="font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(198,161,91,.55);background:rgba(198,161,91,.07);border:1px solid rgba(198,161,91,.18);border-radius:999px;padding:.2rem .6rem;">◈ Diagramas</span>`
+      : '';
+    const incompleteBadge = incomplete
+      ? `<span style="font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,240,231,.3);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:.2rem .6rem;">En preparación</span>`
+      : '';
+    const ctaHtml = incomplete
+      ? `<div class="mt-4 flex items-center justify-between rounded-2xl border border-white/8 bg-void/40 px-4 py-3 text-[.62rem] font-bold uppercase tracking-[.18em] text-bone/28 cursor-not-allowed select-none">
+           Contenido en preparación <span>⋯</span>
+         </div>`
+      : `<a href="conferencia.html?id=${l.id}"
+           class="mt-4 inline-flex items-center justify-between rounded-2xl border border-white/10 bg-void/55 px-4 py-3 text-[.67rem] font-bold uppercase tracking-[.18em] text-bone/55 transition hover:border-gold/38 hover:text-gold2">
+           ${isYo ? 'Leer estudio completo' : 'Leer conferencia completa'} <span>→</span>
+         </a>`;
+    return `
+    <article class="lecture-card luxury-border rounded-[1.7rem] bg-white/[.035] p-5 backdrop-blur-xl flex flex-col relative overflow-hidden${incomplete ? ' opacity-60' : ''}"
+             style="animation:fadeIn .38s ease both;will-change:transform;">
+      <div class="flex items-start justify-between gap-3 mb-3">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 flex-wrap">
+            <p class="text-[.62rem] font-extrabold uppercase tracking-[.26em] text-gold2">${phaseLbl}</p>
+            ${readBadge}${imgBadge}${incompleteBadge}
+          </div>
+          <h2 class="mt-2 text-base font-bold leading-snug text-bone line-clamp-2">${l.title}</h2>
+        </div>
+        ${pageLbl ? `<span class="shrink-0 rounded-full border border-white/10 px-2.5 py-1.5 text-[.6rem] text-bone/38">${pageLbl}</span>` : ''}
+      </div>
+      <p class="card-summary text-xs leading-6 text-bone/50 flex-1 line-clamp-3">${l.summary || ''}</p>
+      <div class="flex flex-wrap gap-1.5 mt-3 card-tags-wrap">${tagsHtml}</div>
+      ${ctaHtml}
+    </article>`;
+  }
+
+  /* ── Render cards ── */
+  function renderCards() {
+    const grid    = document.getElementById('lectureGrid');
+    const empty   = document.getElementById('emptyState');
+    const countEl = document.getElementById('visibleCount');
+
+    /* Filter */
+    let filtered = lectures.filter(l => {
+      const isYo = l.collection === 'yoes';
+      const okPhase = activePhase === 'all'
+        || (activePhase === 'Y' && isYo)
+        || (!isYo && l.phase === activePhase);
+      const okTags  = activeTags.size === 0 || [...activeTags].every(t => (l.tags||[]).includes(t));
+      return okPhase && okTags;
+    });
+
+    /* Score + filter by search */
+    if (searchQ) {
+      filtered = filtered
+        .map(l => ({ l, s: scoreItem(l, searchQ) }))
+        .filter(x => x.s > 0)
+        .sort((a, b) => b.s - a.s)
+        .map(x => x.l);
+    }
+
+    const noun = filtered.length === 1 ? 'resultado' : 'resultados';
+    countEl.textContent = `${filtered.length} ${noun}`;
+
+    if (filtered.length === 0) {
+      grid.classList.add('hidden');
+      empty.classList.remove('hidden');
+      return;
+    }
+    empty.classList.add('hidden');
+    grid.classList.remove('hidden');
+    grid.innerHTML = filtered.map(cardHTML).join('');
+
+    /* Magnetic + radial hover */
+    grid.querySelectorAll('.lecture-card').forEach(card => {
+      card.style.willChange = 'transform';
+      card.addEventListener('mousemove', e => {
+        const r  = card.getBoundingClientRect();
+        const rx = ((e.clientY - r.top)  / r.height - 0.5) * -4;
+        const ry = ((e.clientX - r.left) / r.width  - 0.5) *  4;
+        card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-3px)`;
+        card.style.setProperty('--mx', ((e.clientX - r.left) / r.width  * 100) + '%');
+        card.style.setProperty('--my', ((e.clientY - r.top)  / r.height * 100) + '%');
+      });
+      card.addEventListener('mouseleave', () => card.style.transform = '');
+    });
+  }
+
+  /* ── Clear filters ── */
+  window.clearFilters = function() {
+    searchQ = '';
+    activePhase = 'all';
+    activeTags.clear();
+    document.getElementById('searchInput').value = '';
+    $$('.phase-pill[data-phase]').forEach(b => b.classList.toggle('active', b.dataset.phase === 'all'));
+    $$('.tag-chip[data-tag]').forEach(b => b.classList.remove('active'));
+    buildTagFilters();
+    renderCards();
+  };
+
+  /* ── Page fade on navigate ── */
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href]');
+    if (!a) return;
+    const href = a.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || a.target === '_blank') return;
+    e.preventDefault();
+    document.body.classList.add('page-fade-out');
+    setTimeout(() => { location.href = href; }, 230);
+  });
+
+  /* ── Load both JSONs ── */
+  async function init() {
+    const params  = new URLSearchParams(location.search);
+    const pPhase  = params.get('phase');
+    const pTag    = params.get('tag');
+
+    try {
+      const [confRes, yoesRes] = await Promise.all([
+        fetch('data/conferencias.json'),
+        fetch('data/yoes.json').catch(() => null)
+      ]);
+      if (!confRes.ok) throw new Error('No se pudo cargar conferencias.json');
+      const confs = await confRes.json();
+      const yoes  = yoesRes && yoesRes.ok ? await yoesRes.json() : [];
+      lectures = [...confs, ...yoes];
+
+      document.getElementById('skeleton').style.display = 'none';
+      buildTagFilters();
+
+      /* Apply URL params */
+      if (pPhase && ['A','B','Y'].includes(pPhase)) {
+        activePhase = pPhase;
+        $$('.phase-pill[data-phase]').forEach(b =>
+          b.classList.toggle('active', b.dataset.phase === pPhase)
+        );
+        buildTagFilters();
+      }
+      if (pTag) {
+        const tag = decodeURIComponent(pTag);
+        activeTags.add(tag);
+        setTimeout(() => {
+          $$('.tag-chip[data-tag]').forEach(b => {
+            if (norm(b.dataset.tag) === norm(tag)) b.classList.add('active');
+          });
+        }, 0);
+      }
+
+      renderCards();
+
+    } catch (err) {
+      document.getElementById('skeleton').innerHTML =
+        `<div style="padding:5rem 0;text-align:center;">
+           <p style="color:rgba(246,240,231,.3);font-size:.85rem;">Error al cargar: ${err.message}</p>
+           <p style="color:rgba(246,240,231,.2);font-size:.75rem;margin-top:.5rem;">Inicia un servidor local: python -m http.server 8000</p>
+         </div>`;
+    }
+  }
+
+  init();
+  </script>
+</body>
+</html>

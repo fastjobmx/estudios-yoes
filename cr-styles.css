@@ -1,0 +1,1231 @@
+/* ============================================================
+   CONCIENCIA REVOLUCIONARIA — Global Styles
+   ============================================================ */
+
+:root {
+  --void:   #050505;
+  --ink:    #0B0B0C;
+  --obsid:  #111113;
+  --panel:  rgba(17,17,19,.68);
+  --line:   rgba(246,240,231,.10);
+  --gold:   #C6A15B;
+  --gold2:  #F0D58C;
+  --ember:  #7A3F22;
+  --bone:   #F6F0E7;
+  --ash:    #B6B0A8;
+  --font-sans:  'Inter', 'Montserrat', system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --max-prose: 72ch;
+  --max-page:  1280px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--void);
+  color: var(--bone);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Grid texture ── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  background:
+    linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px),
+    var(--void);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(circle at 50% 14%, #000 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Film grain ── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+  opacity: .07;
+  mix-blend-mode: screen;
+}
+
+/* ── Progress bar ── */
+#progressBar {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 90;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold2));
+  box-shadow: 0 0 20px rgba(240,213,140,.5);
+  transition: width .1s linear;
+}
+
+/* ── Cursor glow ── */
+#cursorGlow {
+  position: fixed;
+  width: 480px;
+  height: 480px;
+  border-radius: 999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(198,161,91,.10), transparent 62%);
+  transform: translate(-50%, -50%);
+  z-index: -3;
+  transition: opacity .3s;
+}
+
+/* ── Navbar ── */
+#navbar {
+  position: fixed;
+  left: 0; right: 0; top: 0;
+  z-index: 50;
+  background: rgba(5,5,5,.46);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  transition: background .4s, box-shadow .4s;
+}
+#navbar.is-scrolled {
+  background: rgba(5,5,5,.88);
+  box-shadow: 0 12px 50px rgba(0,0,0,.35);
+}
+
+/* ── Luxury border pseudo-element ── */
+.luxury-border { position: relative; }
+.luxury-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg,
+    rgba(240,213,140,.42),
+    rgba(255,255,255,.07),
+    rgba(198,161,91,.12));
+  -webkit-mask: linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px) scale(.987);
+  filter: blur(6px);
+  transition:
+    opacity .85s ease,
+    transform .85s cubic-bezier(.16,1,.3,1),
+    filter .85s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* Stagger helpers */
+.stagger-1 { transition-delay: .05s; }
+.stagger-2 { transition-delay: .12s; }
+.stagger-3 { transition-delay: .19s; }
+.stagger-4 { transition-delay: .26s; }
+.stagger-5 { transition-delay: .33s; }
+.stagger-6 { transition-delay: .40s; }
+
+/* ── Text shimmer ── */
+.text-shimmer {
+  background: linear-gradient(90deg, var(--bone) 0%, var(--gold) 34%, var(--gold2) 52%, var(--bone) 70%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 7s ease-in-out infinite;
+}
+
+/* ── Magnetic card ── */
+.magnetic-card {
+  transform-style: preserve-3d;
+  transition: transform .3s ease, border-color .3s;
+}
+.magnetic-card:hover { border-color: rgba(240,213,140,.32); }
+
+/* ── Halo ── */
+.halo {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(240,213,140,.12);
+  background: radial-gradient(circle, rgba(198,161,91,.13), transparent 62%);
+  box-shadow: inset 0 0 80px rgba(198,161,91,.05), 0 0 120px rgba(198,161,91,.06);
+  animation: slowSpin 44s linear infinite;
+  pointer-events: none;
+}
+.halo::before, .halo::after {
+  content: "";
+  position: absolute;
+  inset: 10%;
+  border-radius: inherit;
+  border: 1px solid rgba(255,255,255,.05);
+}
+.halo::after { inset: 24%; border-color: rgba(198,161,91,.20); }
+
+/* ── Orb ── */
+.orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(8px);
+  pointer-events: none;
+  animation: floatOrb 10s ease-in-out infinite;
+}
+
+/* ── Marquee ── */
+.marquee-mask { mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 44s linear infinite;
+}
+
+/* ── Phase pill ── */
+.phase-pill {
+  border-radius: 9999px;
+  padding: .6rem 1.2rem;
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  cursor: pointer;
+  transition: all .25s ease;
+  border: none;
+  background: none;
+  color: rgba(246,240,231,.55);
+}
+.phase-pill.active {
+  color: var(--void);
+  background: linear-gradient(135deg, var(--gold2), var(--gold));
+  box-shadow: 0 0 30px rgba(198,161,91,.22);
+}
+
+/* ── Lecture card ── */
+.lecture-card {
+  transition: transform .3s ease, background .3s, border-color .3s;
+}
+.lecture-card:hover { transform: translateY(-4px); }
+.lecture-card[data-hidden="true"] { display: none; }
+
+/* ── Skeleton loading ── */
+.skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,.04) 25%, rgba(255,255,255,.08) 50%, rgba(255,255,255,.04) 75%);
+  background-size: 400% 100%;
+  animation: skeleton 1.4s ease-in-out infinite;
+  border-radius: .75rem;
+}
+
+/* ── Modal ── */
+.dialog-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+.dialog-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.dialog-panel {
+  transform: translateY(20px) scale(.97);
+  opacity: 0;
+  transition: transform .38s cubic-bezier(.16,1,.3,1), opacity .3s;
+}
+.dialog-backdrop.active .dialog-panel {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+.modal-open { overflow: hidden; }
+
+/* ══════════════════════════════════════════════════════
+   PROSE READER — Sistema editorial premium
+   Filosofía: libro digital de lujo, no blog
+   ══════════════════════════════════════════════════════ */
+
+/* ─── Base del área de lectura ─── */
+.prose-reader {
+  max-width: 66ch;          /* columna de lectura cómoda — ~660px */
+  margin: 0;                /* alineado a la izquierda de su contenedor */
+  font-size: 1.0625rem;
+  line-height: 1.95;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  counter-reset: section-counter;
+}
+
+/* ─── Párrafos ─── */
+.prose-reader p {
+  margin-top: 0;
+  margin-bottom: 1.85em;    /* espacio generoso — aireación tipo libro */
+  color: rgba(246,240,231,.70);
+  font-size: inherit;
+  line-height: 1.95;
+  transition: opacity .3s ease;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Primer párrafo real de sección — ligeramente más prominente */
+.prose-reader h2 + p,
+.prose-reader h3 + p {
+  color: rgba(246,240,231,.78);
+  font-size: 1.05rem;
+  line-height: 2;
+}
+
+/* Párrafos muy cortos (metadata OCR) — se ven como notas discretas */
+.prose-reader p.prose-meta {
+  font-size: .72rem;
+  letter-spacing: .08em;
+  color: rgba(246,240,231,.25);
+  margin-bottom: .6em;
+  line-height: 1.5;
+}
+
+/* ─── H2 — Título de sección ─── */
+.prose-reader h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-weight: 500;
+  color: var(--bone);
+  margin: 4em 0 1em;
+  letter-spacing: -.02em;
+  line-height: 1.25;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid rgba(198,161,91,.13);
+  position: relative;
+  counter-increment: section-counter;
+}
+.prose-reader h2::before {
+  content: "";
+  position: absolute;
+  bottom: -1px; left: 0;
+  width: 2.5rem; height: 1px;
+  background: linear-gradient(90deg, var(--gold), var(--gold2) 40%, transparent);
+}
+.prose-reader h2::after {
+  content: counter(section-counter, decimal-leading-zero);
+  position: absolute;
+  top: .2rem; right: 0;
+  font-family: var(--font-sans);
+  font-size: .55rem;
+  font-weight: 800;
+  letter-spacing: .28em;
+  color: rgba(198,161,91,.18);
+  line-height: 1;
+}
+
+/* H2 que parece mantram (texto con muchas consonantes repetidas)
+   — se detecta por clase .prose-h2-mantra — */
+.prose-reader h2.prose-h2-mantra {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  font-style: italic;
+  text-align: center;
+  color: rgba(240,213,140,.75);
+  letter-spacing: .1em;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin: 2.5em 0 .5em;
+}
+.prose-reader h2.prose-h2-mantra::before,
+.prose-reader h2.prose-h2-mantra::after { display: none; }
+
+/* ─── H3 — Sub-sección ─── */
+.prose-reader h3 {
+  font-family: var(--font-sans);
+  font-size: .7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .28em;
+  color: rgba(198,161,91,.55);
+  margin: 3em 0 .85em;
+  line-height: 1.5;
+  /* Sin flex: el texto puede ser largo (títulos de conf.) */
+  padding-bottom: .5rem;
+  border-bottom: 1px solid rgba(198,161,91,.08);
+  position: relative;
+}
+/* Línea decorativa discreta en vez del ::after extensible */
+.prose-reader h3::before {
+  content: "";
+  display: inline-block;
+  width: 1.2rem;
+  height: 1px;
+  background: var(--gold);
+  opacity: .4;
+  vertical-align: middle;
+  margin-right: .6rem;
+}
+/* H3 que es título-duplicado del hero: se oculta */
+.prose-reader h3.prose-conf-title {
+  display: none;
+}
+
+/* ─── Listas sin orden ─── */
+.prose-reader ul {
+  list-style: none;
+  padding: 1.1rem 1.4rem;
+  margin: 0 0 2em;
+  background: rgba(255,255,255,.016);
+  border-left: 2px solid rgba(198,161,91,.18);
+  border-radius: 0 .75rem .75rem 0;
+}
+.prose-reader ul li {
+  position: relative;
+  padding-left: 1.35em;
+  margin-bottom: .7em;
+  color: rgba(246,240,231,.66);
+  font-size: .965rem;
+  line-height: 1.85;
+}
+.prose-reader ul li:last-child { margin-bottom: 0; }
+.prose-reader ul li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: .74em;
+  width: .38em; height: .38em;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: .5;
+}
+
+/* Listas densas (>12 items): columnas en pantallas anchas */
+.prose-reader ul.prose-list-dense {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18ch, 1fr));
+  gap: .15rem .5rem;
+  background: rgba(255,255,255,.012);
+}
+.prose-reader ul.prose-list-dense li {
+  margin-bottom: .3em;
+}
+
+/* ─── Listas numeradas ─── */
+.prose-reader ol {
+  padding: 1.1rem 1.4rem;
+  margin: 0 0 2em;
+  background: rgba(255,255,255,.016);
+  border-left: 2px solid rgba(198,161,91,.18);
+  border-radius: 0 .75rem .75rem 0;
+  counter-reset: ol-counter;
+  list-style: none;
+}
+.prose-reader ol li {
+  position: relative;
+  padding-left: 2.2em;
+  margin-bottom: .7em;
+  color: rgba(246,240,231,.66);
+  font-size: .965rem;
+  line-height: 1.85;
+  counter-increment: ol-counter;
+}
+.prose-reader ol li:last-child { margin-bottom: 0; }
+.prose-reader ol li::before {
+  content: counter(ol-counter, decimal-leading-zero);
+  position: absolute;
+  left: 0; top: .06em;
+  font-size: .66rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: var(--gold);
+  opacity: .6;
+  font-family: var(--font-sans);
+  min-width: 1.8em;
+}
+
+/* ─── Quote / Cita ─── */
+.prose-reader blockquote.prose-quote {
+  position: relative;
+  margin: 3em 0;
+  padding: 1.75rem 2rem 1.75rem 2.25rem;
+  border-left: 2px solid rgba(198,161,91,.45);
+  background: linear-gradient(135deg, rgba(198,161,91,.03) 0%, transparent 80%);
+  border-radius: 0 1.25rem 1.25rem 0;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.9;
+  color: rgba(246,240,231,.72);
+  overflow: hidden;
+}
+.prose-reader blockquote.prose-quote::before {
+  content: "\201C";
+  position: absolute;
+  top: -.15em;
+  left: 1.5rem;
+  font-size: 5rem;
+  color: rgba(198,161,91,.1);
+  font-family: var(--font-serif);
+  line-height: 1;
+  pointer-events: none;
+  font-style: normal;
+}
+
+/* ─── Practice block ─── */
+/* Aspecto de tarjeta de instrucción sagrada */
+.prose-practice {
+  position: relative;
+  margin: 3.5em 0;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(198,161,91,.18);
+  background:
+    linear-gradient(160deg, rgba(198,161,91,.045) 0%, rgba(5,5,5,.0) 55%),
+    rgba(10,10,10,.5);
+  padding: 0;
+  overflow: hidden;
+}
+/* Barra superior dorada */
+.prose-practice::before {
+  content: "";
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold2) 30%, transparent 80%);
+}
+/* Inner padding real */
+.prose-practice > * { padding-left: 2rem; padding-right: 2rem; }
+.prose-practice > *:first-child { padding-top: 1.75rem; }
+.prose-practice > *:last-child  { padding-bottom: 1.75rem; }
+
+.prose-practice-title {
+  font-size: .6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .38em;
+  color: rgba(198,161,91,.6);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+  padding-top: 1.75rem !important;
+  margin-top: 0;
+}
+.prose-practice-title::before {
+  content: "";
+  width: .5rem;
+  height: .5rem;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: .5;
+  flex-shrink: 0;
+}
+
+/* Lista de pasos — tarjetas individuales */
+.prose-practice ol {
+  counter-reset: practice-counter;
+  list-style: none;
+  padding: 0 2rem 1.75rem !important;
+  margin: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  display: grid;
+  gap: .65rem;
+}
+.prose-practice ol li {
+  counter-increment: practice-counter;
+  padding: .9rem 1.1rem .9rem 3rem;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.055);
+  border-radius: .85rem;
+  position: relative;
+  font-size: .93rem;
+  line-height: 1.75;
+  color: rgba(246,240,231,.72);
+  margin-bottom: 0;
+}
+.prose-practice ol li::before {
+  content: counter(practice-counter);
+  position: absolute;
+  left: .85rem;
+  top: .85rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  background: rgba(198,161,91,.14);
+  border: 1px solid rgba(198,161,91,.25);
+  border-radius: 50%;
+  font-size: .58rem;
+  font-weight: 800;
+  color: var(--gold2);
+  text-align: center;
+  line-height: 1.35rem;
+  font-family: var(--font-sans);
+}
+
+/* ─── Mantra block ─── */
+/* Objeto ceremonial — requiere silencio visual a su alrededor */
+.prose-mantra {
+  margin: 4em auto;
+  max-width: 50ch;
+  text-align: center;
+  padding: 2.5rem 3rem;
+  border: 1px solid rgba(198,161,91,.18);
+  border-radius: 1.5rem;
+  background: rgba(5,5,5,.65);
+  position: relative;
+  box-shadow:
+    inset 0 1px 0 rgba(198,161,91,.12),
+    0 20px 60px rgba(0,0,0,.3);
+}
+/* Ornamento superior */
+.prose-mantra::before {
+  content: "✦  ✦  ✦";
+  display: block;
+  color: rgba(198,161,91,.28);
+  font-size: .5rem;
+  letter-spacing: .6em;
+  margin-bottom: 1.5rem;
+}
+/* Ornamento inferior */
+.prose-mantra::after {
+  content: "✦  ✦  ✦";
+  display: block;
+  color: rgba(198,161,91,.28);
+  font-size: .5rem;
+  letter-spacing: .6em;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+.prose-mantra p,
+.prose-mantra > div {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 2;
+  color: rgba(240,213,140,.88);
+  letter-spacing: .02em;
+  margin: 0;
+  opacity: 1 !important;
+}
+/* Si el mantra tiene varias líneas, separarlas visualmente */
+.prose-mantra p + p {
+  margin-top: .75em;
+  padding-top: .75em;
+  border-top: 1px solid rgba(198,161,91,.08);
+}
+
+/* ─── Tabla ─── */
+.prose-table-wrap {
+  overflow-x: auto;
+  margin: 2.5em 0;
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,.06);
+}
+.prose-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .88rem;
+  min-width: 400px;
+}
+.prose-table thead tr {
+  background: rgba(198,161,91,.06);
+  border-bottom: 1px solid rgba(198,161,91,.2);
+}
+.prose-table th {
+  padding: .85rem 1.1rem;
+  text-align: left;
+  font-size: .6rem;
+  font-weight: 800;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  white-space: nowrap;
+}
+.prose-table td {
+  padding: .85rem 1.1rem;
+  color: rgba(246,240,231,.62);
+  border-bottom: 1px solid rgba(255,255,255,.04);
+  line-height: 1.75;
+  vertical-align: top;
+}
+.prose-table tr:last-child td { border-bottom: none; }
+.prose-table tbody tr:hover td {
+  background: rgba(198,161,91,.03);
+  color: rgba(246,240,231,.75);
+}
+
+/* ─── Imagen en lectura ─── */
+.prose-img-wrap {
+  margin: 4em 0;
+  text-align: center;
+}
+/* Marco exterior decorativo */
+.prose-img-frame {
+  display: inline-block;
+  padding: .5rem;
+  border: 1px solid rgba(198,161,91,.18);
+  border-radius: 1.25rem;
+  background: rgba(10,10,10,.6);
+  box-shadow: 0 24px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.03);
+}
+.prose-img-wrap img {
+  max-width: min(100%, 620px);
+  height: auto;
+  border-radius: .85rem;
+  display: block;
+  cursor: zoom-in;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.prose-img-frame:hover img {
+  transform: scale(1.012);
+  box-shadow: 0 8px 40px rgba(198,161,91,.12);
+}
+/* Caption tipo pie de foto editorial */
+.prose-img-caption {
+  margin-top: 1rem;
+  font-size: .62rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(246,240,231,.28);
+  font-family: var(--font-sans);
+  max-width: 52ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+.prose-img-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin-top: .5rem;
+  font-size: .58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  color: rgba(198,161,91,.4);
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color .2s;
+  padding: 0;
+}
+.prose-img-btn:hover { color: var(--gold2); }
+
+/* ─── Imagen inline (con texto envolvente — igual al sitio oficial) ─── */
+.prose-img-inline {
+  overflow: hidden; /* clearfix para el float */
+  margin: 2em 0;
+  line-height: var(--line-height, 1.85);
+}
+.prose-img-inline-frame {
+  float: left;
+  margin: 0 1.5rem 0.5rem 0;
+  flex-shrink: 0;
+  display: block;
+  padding: .35rem;
+  border: 1px solid rgba(198,161,91,.18);
+  border-radius: .85rem;
+  background: rgba(10,10,10,.6);
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
+  max-width: min(240px, 40%);
+}
+.prose-img-inline-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: .55rem;
+  cursor: zoom-in;
+  transition: transform .3s ease;
+}
+.prose-img-inline-frame:hover img {
+  transform: scale(1.025);
+}
+.prose-img-inline-text {
+  display: block;
+  overflow: hidden;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--bone);
+}
+
+/* ─── Separador de sección ─── */
+.prose-divider {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 4.5em 0;
+}
+.prose-divider::before,
+.prose-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(198,161,91,.3), transparent);
+}
+.prose-divider span {
+  font-size: .45rem;
+  letter-spacing: .55em;
+  color: rgba(198,161,91,.35);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+/* ─── Idea clave ─── */
+.prose-key-idea {
+  margin: 3em 0;
+  padding: 1.5rem 1.75rem;
+  background: rgba(198,161,91,.035);
+  border-radius: 1rem;
+  border: 1px solid rgba(198,161,91,.12);
+  position: relative;
+}
+.prose-key-idea::before {
+  content: "IDEA CLAVE";
+  display: block;
+  font-size: .52rem;
+  font-weight: 800;
+  letter-spacing: .42em;
+  color: rgba(198,161,91,.4);
+  margin-bottom: .8rem;
+}
+.prose-key-idea p {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: rgba(246,240,231,.76);
+  line-height: 1.8;
+  opacity: 1 !important;
+}
+
+/* ─── Control de tamaño de fuente ─── */
+.prose-reader.font-sm {
+  font-size: .925rem;
+}
+.prose-reader.font-sm h2 { font-size: clamp(1.25rem, 2.6vw, 1.6rem); }
+
+.prose-reader.font-lg {
+  font-size: 1.15rem;
+}
+.prose-reader.font-lg h2 { font-size: clamp(1.7rem, 3.5vw, 2.15rem); }
+
+.prose-reader.font-xl {
+  font-size: 1.25rem;
+}
+.prose-reader.font-xl h2 { font-size: clamp(1.85rem, 3.8vw, 2.35rem); }
+
+/* ── Tags ── */
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(246,240,231,.12);
+  background: rgba(5,5,5,.5);
+  padding: .35rem .9rem;
+  font-size: .64rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: rgba(246,240,231,.42);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all .22s;
+}
+.tag-chip:hover, .tag-chip.active {
+  border-color: rgba(240,213,140,.5);
+  color: var(--gold2);
+  background: rgba(198,161,91,.08);
+}
+
+/* ── Keyframes ── */
+@keyframes shimmer    { 0%,100%{background-position:0% center} 50%{background-position:100% center} }
+@keyframes floatOrb   { 0%,100%{transform:translate3d(0,0,0) scale(1)} 50%{transform:translate3d(20px,-24px,0) scale(1.07)} }
+@keyframes slowSpin   { to{ transform: rotate(360deg); } }
+@keyframes marquee    { to{ transform: translateX(-50%); } }
+@keyframes pulseLine  { 0%,100%{opacity:.28;transform:scaleY(.72)} 50%{opacity:1;transform:scaleY(1.18)} }
+@keyframes skeleton   { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+@keyframes fadeIn     { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+@keyframes haloBreath { 0%,100%{transform:rotate(0deg) scale(1)} 50%{transform:rotate(180deg) scale(1.045)} }
+@keyframes pageFadeOut{ from{opacity:1} to{opacity:0} }
+@keyframes tagPulse   { 0%{box-shadow:0 0 0 rgba(240,213,140,0)} 60%{box-shadow:0 0 22px rgba(240,213,140,.35)} 100%{box-shadow:0 0 0 rgba(240,213,140,0)} }
+
+/* ── Focus visible (accessibility) ── */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Page fade transition ── */
+.page-fade-out {
+  animation: pageFadeOut .22s ease forwards;
+}
+
+/* ── Back to top button ── */
+#backToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 1.5rem;
+  z-index: 40;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(240,213,140,.32);
+  background: rgba(5,5,5,.82);
+  color: var(--gold2);
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(.8) translateY(8px);
+  pointer-events: none;
+  transition: opacity .3s, transform .3s;
+}
+#backToTop.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+#backToTop:hover { background: rgba(198,161,91,.18); }
+
+/* ── Halo breath animation ── */
+.halo {
+  animation: slowSpin 44s linear infinite, haloBreath 6s ease-in-out infinite;
+}
+
+/* ── Card radial light hover ── */
+.magnetic-card, .lecture-card {
+  --mx: 50%;
+  --my: 50%;
+}
+.magnetic-card::after, .lecture-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--mx) var(--my), rgba(240,213,140,.07), transparent 62%);
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+  z-index: 0;
+}
+.magnetic-card:hover::after, .lecture-card:hover::after { opacity: 1; }
+
+/* ── Reading spotlight ── */
+.prose-reader.spotlight p {
+  opacity: .32;
+  transition: opacity .35s ease;
+}
+.prose-reader.spotlight p.in-view {
+  opacity: 1;
+}
+
+/* ── Mobile reading ── */
+@media (max-width: 768px) {
+  .prose-reader {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+  .prose-reader p {
+    line-height: 1.88;
+    margin-bottom: 1.5em;
+  }
+  .prose-reader h2 {
+    font-size: clamp(1.3rem, 5vw, 1.6rem);
+    margin: 3em 0 .85em;
+  }
+  .prose-reader h2.prose-h2-mantra {
+    font-size: clamp(1.1rem, 4vw, 1.35rem);
+  }
+  .prose-reader h3 {
+    font-size: .67rem;
+    letter-spacing: .2em;
+    margin: 2.4em 0 .75em;
+  }
+  .prose-reader ul,
+  .prose-reader ol {
+    padding: .9rem 1rem;
+  }
+  /* En mobile las listas densas vuelven a una columna */
+  .prose-reader ul.prose-list-dense {
+    grid-template-columns: 1fr;
+  }
+  .prose-practice {
+    border-radius: 1.1rem;
+    margin: 2.5em 0;
+  }
+  .prose-practice ol {
+    padding-left: 1.1rem !important;
+    padding-right: 1.1rem !important;
+  }
+  .prose-practice-title {
+    padding-left: 1.1rem !important;
+    padding-right: 1.1rem !important;
+  }
+  .prose-practice > *:first-child { padding-top: 1.25rem; }
+  .prose-practice > *:last-child  { padding-bottom: 1.25rem; }
+  .prose-mantra {
+    padding: 1.75rem 1.25rem;
+    margin: 2.5em auto;
+    max-width: 100%;
+  }
+  .prose-mantra p, .prose-mantra > div {
+    font-size: 1.05rem;
+  }
+  .prose-img-wrap { margin: 2.5em 0; }
+  .prose-img-frame { padding: .3rem; border-radius: .9rem; }
+  .prose-img-inline { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+  .prose-img-inline-frame { float: none; max-width: 85%; margin: 0 auto; }
+  .prose-img-inline-text { text-align: left; }
+  .prose-reader blockquote.prose-quote {
+    padding: 1.25rem 1.1rem 1.25rem 1.4rem;
+    font-size: 1rem;
+  }
+  /* Hero mobile */
+  #confHero {
+    padding: 1.75rem 1.25rem 1.5rem;
+    border-radius: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  #confHero h1 {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+  /* Toolbar mobile: sin border-radius pill */
+  #readerToolbarInner {
+    border-radius: 1rem;
+    padding: .5rem .75rem;
+  }
+}
+
+/* ── Tag chip pulse on activate ── */
+.tag-chip.active { animation: tagPulse .4s ease; }
+
+/* ── Skeleton improved ── */
+.skeleton-card {
+  background: rgba(255,255,255,.04);
+  border-radius: 1.7rem;
+  border: 1px solid rgba(255,255,255,.06);
+  padding: 1.25rem;
+  overflow: hidden;
+}
+.skeleton-line {
+  height: .75rem;
+  border-radius: .5rem;
+  background: linear-gradient(90deg, rgba(255,255,255,.05) 25%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.05) 75%);
+  background-size: 400% 100%;
+  animation: skeleton 1.4s ease-in-out infinite;
+  margin-bottom: .65rem;
+}
+.skeleton-line.w-full { width: 100%; }
+.skeleton-line.w-3-4 { width: 75%; }
+.skeleton-line.w-1-2 { width: 50%; }
+.skeleton-line.w-1-3 { width: 35%; }
+.skeleton-line.h-sm  { height: .6rem; }
+
+/* ── View toggle (grid / list) ── */
+.view-list .lecture-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 1.2rem;
+}
+.view-list .lecture-card h2 { font-size: .95rem; }
+.view-list .lecture-card p  { display: none; }
+.view-list .lecture-card .card-tags { display: none; }
+.view-list #lectureGrid {
+  grid-template-columns: 1fr !important;
+}
+
+/* ── Read badge ── */
+.read-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  border-radius: 999px;
+  background: rgba(198,161,91,.12);
+  border: 1px solid rgba(198,161,91,.3);
+  color: var(--gold2);
+  font-size: .58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  padding: .2rem .6rem;
+}
+
+/* ── TOC nav — sistema de navegación lateral ── */
+.toc-link {
+  display: block;
+  padding: .4rem .65rem;
+  border-radius: .5rem;
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(246,240,231,.3);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: color .18s, border-color .18s, background .18s, padding-left .18s;
+  line-height: 1.5;
+  margin-bottom: .1rem;
+  /* No truncar — permitir que se vea el texto completo */
+  white-space: normal;
+  word-break: break-word;
+}
+.toc-link:hover {
+  color: rgba(246,240,231,.6);
+  background: rgba(255,255,255,.025);
+  border-left-color: rgba(198,161,91,.25);
+}
+.toc-link.active {
+  color: var(--gold2);
+  border-left-color: var(--gold);
+  background: rgba(198,161,91,.07);
+  padding-left: .9rem;
+  font-weight: 700;
+}
+
+/* ── Conference hero header ── */
+#confHero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(198,161,91,.15);
+  padding: 3rem 2.5rem 2.5rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(160deg, rgba(198,161,91,.06) 0%, rgba(5,5,5,.0) 60%);
+}
+#confHero::before {
+  content: "";
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(198,161,91,.1), transparent 70%);
+  pointer-events: none;
+}
+#confHero .hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+#confHero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 5vw, 3.2rem);
+  line-height: 1.12;
+  letter-spacing: -.03em;
+  color: var(--bone);
+  margin: 0 0 1.25rem;
+  font-weight: 500;
+}
+#confHero .hero-summary {
+  font-size: .98rem;
+  line-height: 1.85;
+  color: rgba(246,240,231,.55);
+  max-width: 62ch;
+  margin-bottom: 1.25rem;
+}
+#confHero .hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .65rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+.hero-meta-item {
+  font-size: .58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: rgba(246,240,231,.32);
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+}
+.hero-meta-item span { color: rgba(246,240,231,.55); }
+
+/* ── Toolbar lector ── */
+#readerToolbar {
+  position: sticky;
+  top: 65px;
+  z-index: 30;
+  margin-bottom: 2.5rem;
+}
+#readerToolbarInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  flex-wrap: wrap;
+  background: rgba(5,5,5,.82);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 9999px;
+  padding: .55rem .9rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
+}
+.toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  height: 2rem;
+  padding: 0 .75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: transparent;
+  font-size: .6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: rgba(246,240,231,.42);
+  cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+  white-space: nowrap;
+}
+.toolbar-btn:hover {
+  border-color: rgba(198,161,91,.35);
+  color: var(--gold2);
+  background: rgba(198,161,91,.06);
+}
+.toolbar-btn.active {
+  border-color: rgba(198,161,91,.4);
+  color: var(--gold2);
+  background: rgba(198,161,91,.1);
+}
+
+/* ── Spotlight toggle btn ── */
+#btnSpotlight.active { color: var(--gold2); border-color: rgba(198,161,91,.4); }
+
+/* ── Reveal on scroll para bloques de prosa ── */
+.prose-block-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .55s ease, transform .55s cubic-bezier(.16,1,.3,1);
+}
+.prose-block-reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1; transform: none; filter: none; }
+  .prose-block-reveal { opacity: 1; transform: none; }
+  .halo { animation: none !important; }
+  .prose-reader.spotlight p { opacity: 1; }
+}

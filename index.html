@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Conciencia Revolucionaria — Escuela de Auto-Conocimiento. 74 conferencias completas, estudios de los Yoes y los Tres Factores de la Revolución de la Conciencia." />
+  <title>Conciencia Revolucionaria | Inicio</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://concienciarevolucionaria.com/" />
+  <meta property="og:title"       content="Conciencia Revolucionaria" />
+  <meta property="og:description" content="74 conferencias de Fase A y B. Estudios de los Yoes. Los Tres Factores de la Revolución de la Conciencia. Escuela de Auto-Conocimiento." />
+  <meta property="og:image"       content="assets/og-image.svg" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:title"      content="Conciencia Revolucionaria" />
+  <meta name="twitter:description" content="74 conferencias de Fase A y B. Estudios de los Yoes. Los Tres Factores." />
+  <meta name="twitter:image"      content="assets/og-image.svg" />
+
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="cr-styles.css" />
+</head>
+
+<body class="bg-void text-bone selection:bg-gold selection:text-void">
+  <div id="progressBar"></div>
+  <div id="cursorGlow" class="hidden md:block"></div>
+
+  <!-- ══ NAVBAR ══ -->
+  <header id="navbar">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-10">
+      <a href="index.html" class="flex items-center gap-3" aria-label="Inicio">
+        <img src="assets/logo.png" alt="Logo" class="h-10 w-10 object-contain"
+             onerror="this.onerror=null;this.src='assets/logo.svg';" />
+        <span class="hidden text-[.7rem] font-semibold uppercase tracking-[.28em] text-bone/75 sm:block leading-tight">
+          Conciencia<br><span class="text-gold">Revolucionaria</span>
+        </span>
+      </a>
+
+      <div class="hidden items-center gap-7 text-[.7rem] font-bold uppercase tracking-[.22em] text-bone/55 md:flex">
+        <a class="transition hover:text-gold2" href="#pilares">Pilares</a>
+        <a class="transition hover:text-gold2" href="#metodo">Método</a>
+        <a class="transition hover:text-gold2" href="#yoes">Yoes</a>
+        <a class="transition hover:text-gold2" href="conferencias.html">Biblioteca</a>
+      </div>
+
+      <a href="conferencias.html"
+         class="hidden rounded-full border border-gold/35 px-5 py-2.5 text-[.7rem] font-bold uppercase tracking-[.2em] text-gold2 transition hover:bg-gold hover:text-void md:inline-flex">
+        Explorar →
+      </a>
+
+      <button id="menuBtn" class="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 md:hidden" aria-label="Abrir menú" aria-expanded="false">
+        <svg width="18" height="12" viewBox="0 0 18 12" fill="none">
+          <rect y="0" width="18" height="1.5" rx=".75" fill="currentColor"/>
+          <rect y="5.25" width="12" height="1.5" rx=".75" fill="currentColor"/>
+          <rect y="10.5" width="18" height="1.5" rx=".75" fill="currentColor"/>
+        </svg>
+      </button>
+    </nav>
+
+    <div id="mobileMenu" class="hidden border-t border-white/8 bg-void/96 px-5 py-5 backdrop-blur-xl md:hidden">
+      <div class="grid gap-1 text-sm font-bold uppercase tracking-[.22em] text-bone/65">
+        <a href="#pilares" class="rounded-xl px-4 py-3 hover:bg-white/5">Pilares</a>
+        <a href="#metodo"  class="rounded-xl px-4 py-3 hover:bg-white/5">Método</a>
+        <a href="#yoes"    class="rounded-xl px-4 py-3 hover:bg-white/5">Yoes</a>
+        <a href="conferencias.html" class="rounded-xl px-4 py-3 text-gold2 hover:bg-white/5">Biblioteca</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ══ HERO ══ -->
+    <section id="inicio" class="relative isolate min-h-screen overflow-hidden px-5 pt-36 pb-24 lg:px-10"
+             style="background: radial-gradient(circle at 50% 0%, rgba(240,213,140,.18), transparent 30%), radial-gradient(circle at 15% 40%, rgba(122,63,34,.16), transparent 34%), #050505;">
+      <div class="halo" style="width:min(90vw,860px);aspect-ratio:1/1;left:50%;top:50%;transform:translate(-50%,-50%);"></div>
+      <span class="orb" style="left:10%;top:20%;width:80px;height:80px;background:rgba(198,161,91,.12);"></span>
+      <span class="orb" style="right:8%;top:32%;width:120px;height:120px;background:rgba(122,63,34,.18);animation-duration:13s;animation-delay:-4s;"></span>
+      <span class="orb" style="bottom:15%;left:40%;width:64px;height:64px;background:rgba(240,213,140,.10);animation-duration:17s;animation-delay:-8s;"></span>
+
+      <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_.9fr]">
+        <!-- Left -->
+        <div class="relative z-10">
+          <div class="reveal stagger-1 mb-7 inline-flex items-center gap-3 rounded-full border border-gold/22 bg-white/[.03] px-4 py-2 backdrop-blur-xl">
+            <span class="h-2 w-2 rounded-full bg-gold2" style="box-shadow:0 0 18px rgba(240,213,140,.9);"></span>
+            <span class="text-[.67rem] font-bold uppercase tracking-[.32em] text-gold2">Biblioteca viva · 74 conferencias</span>
+          </div>
+
+          <h1 class="reveal stagger-2 font-serif leading-[.82]" style="font-size:clamp(3.6rem,10vw,9.4rem);letter-spacing:-.06em;">
+            Conciencia <span class="text-shimmer">Revolucionaria</span>
+          </h1>
+
+          <p class="reveal stagger-3 mt-8 max-w-xl text-base leading-8 text-bone/60 md:text-lg">
+            Un camino hacia la Auto-Realización Íntima a través de los Tres Factores de la Revolución de la Conciencia. Ciencia, Arte, Psicología y Mística integradas en una sola experiencia.
+          </p>
+
+          <div class="reveal stagger-4 mt-10 flex flex-col gap-4 sm:flex-row">
+            <a href="conferencias.html"
+               class="group inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 text-sm font-extrabold uppercase tracking-[.18em] text-void transition hover:scale-[1.02]"
+               style="background:linear-gradient(135deg,var(--gold2),var(--gold));box-shadow:0 0 60px rgba(198,161,91,.2);">
+              Entrar a la biblioteca
+              <span class="transition group-hover:translate-x-1">→</span>
+            </a>
+            <a href="#pilares"
+               class="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[.03] px-7 py-4 text-sm font-bold uppercase tracking-[.18em] text-bone/75 backdrop-blur-xl transition hover:border-gold/40 hover:text-gold2">
+              Ver fundamentos
+            </a>
+          </div>
+
+          <!-- Frase de escala espiritual -->
+          <div class="reveal stagger-5 mt-12 flex flex-wrap items-center gap-4">
+            <div class="flex items-center gap-3 rounded-2xl border border-white/8 bg-white/[.03] px-5 py-3 backdrop-blur-xl">
+              <span class="h-1.5 w-1.5 rounded-full bg-gold2 shrink-0"></span>
+              <p class="text-[.65rem] font-bold uppercase tracking-[.2em] text-bone/50">50 conferencias <span class="text-bone/25">·</span> Fase A</p>
+            </div>
+            <div class="flex items-center gap-3 rounded-2xl border border-white/8 bg-white/[.03] px-5 py-3 backdrop-blur-xl">
+              <span class="h-1.5 w-1.5 rounded-full bg-gold shrink-0"></span>
+              <p class="text-[.65rem] font-bold uppercase tracking-[.2em] text-bone/50">25 conferencias <span class="text-bone/25">·</span> Fase B</p>
+            </div>
+            <div class="flex items-center gap-3 rounded-2xl border border-white/8 bg-white/[.03] px-5 py-3 backdrop-blur-xl">
+              <span class="h-1.5 w-1.5 rounded-full bg-ember shrink-0"></span>
+              <p class="text-[.65rem] font-bold uppercase tracking-[.2em] text-bone/50">6 estudios <span class="text-bone/25">·</span> Los Yoes</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right — composición poética cinematográfica -->
+        <aside class="reveal stagger-3 relative z-10 mx-auto w-full max-w-md">
+          <div class="luxury-border rounded-[2.2rem] bg-white/[.025] p-5 shadow-[0_30px_100px_rgba(0,0,0,.55)] backdrop-blur-2xl">
+            <div class="relative overflow-hidden rounded-[1.7rem] border border-white/8 bg-obsidian p-8 flex flex-col items-center text-center" style="min-height:420px;">
+              <!-- inner glows -->
+              <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(circle at 50% 20%,rgba(198,161,91,.13),transparent 55%),radial-gradient(circle at 20% 80%,rgba(122,63,34,.20),transparent 45%);"></div>
+              <!-- Halo symbol -->
+              <div class="relative z-10 mt-4 mb-6">
+                <div class="halo mx-auto" style="width:130px;height:130px;position:relative;"></div>
+                <svg class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" width="52" height="52" viewBox="0 0 52 52" fill="none">
+                  <circle cx="26" cy="26" r="11" stroke="rgba(240,213,140,.5)" stroke-width="1"/>
+                  <circle cx="26" cy="26" r="4"  fill="rgba(240,213,140,.7)"/>
+                  <line x1="26" y1="5"  x2="26" y2="16" stroke="rgba(240,213,140,.35)" stroke-width="1"/>
+                  <line x1="26" y1="36" x2="26" y2="47" stroke="rgba(240,213,140,.35)" stroke-width="1"/>
+                  <line x1="5"  y1="26" x2="16" y2="26" stroke="rgba(240,213,140,.35)" stroke-width="1"/>
+                  <line x1="36" y1="26" x2="47" y2="26" stroke="rgba(240,213,140,.35)" stroke-width="1"/>
+                </svg>
+              </div>
+              <!-- Quote -->
+              <div class="relative z-10 flex-1 flex flex-col items-center justify-center px-4">
+                <p class="text-[.62rem] font-extrabold uppercase tracking-[.38em] text-gold2 mb-6">Psicología Revolucionaria</p>
+                <blockquote class="font-serif leading-[1.15] tracking-[-.03em] text-bone" style="font-size:clamp(1.7rem,4vw,2.5rem);">
+                  &ldquo;Conocerse<br>a sí mismo es<br><span class="text-shimmer">la gran obra.</span>&rdquo;
+                </blockquote>
+                <p class="mt-6 text-[.7rem] leading-6 text-bone/40 max-w-[22ch]">El camino no se describe. Se recorre. Conciencia por conciencia.</p>
+              </div>
+              <!-- Three pillars minimal -->
+              <div class="relative z-10 mt-8 w-full grid grid-cols-3 gap-2">
+                <div class="rounded-2xl border border-white/8 bg-white/[.025] py-3 text-center">
+                  <p class="font-serif text-xl text-gold2">I</p>
+                  <p class="mt-1 text-[.58rem] uppercase tracking-[.2em] text-bone/45">Nacer</p>
+                </div>
+                <div class="rounded-2xl border border-gold/18 py-3 text-center" style="background:rgba(198,161,91,.06);">
+                  <p class="font-serif text-xl text-gold2">II</p>
+                  <p class="mt-1 text-[.58rem] uppercase tracking-[.2em] text-bone/45">Morir</p>
+                </div>
+                <div class="rounded-2xl border border-white/8 bg-white/[.025] py-3 text-center">
+                  <p class="font-serif text-xl text-gold2">III</p>
+                  <p class="mt-1 text-[.58rem] uppercase tracking-[.2em] text-bone/45">Servir</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 text-[.6rem] uppercase tracking-[.34em] text-bone/35 md:flex">
+        <span>Descender</span>
+        <span class="h-16 w-px origin-top bg-gradient-to-b from-gold to-transparent" style="animation:pulseLine 2.2s ease-in-out infinite;"></span>
+      </div>
+    </section>
+
+    <!-- ══ MARQUEE ══ -->
+    <section class="border-y border-white/8 bg-white/[.02] py-5 overflow-hidden">
+      <div class="marquee-mask">
+        <div class="marquee-track gap-10 text-[.7rem] font-bold uppercase tracking-[.3em] text-bone/32">
+          <span>Auto-conocimiento</span><span class="text-gold">✦</span>
+          <span>Revolución de la conciencia</span><span class="text-gold">✦</span>
+          <span>Conocimiento de sí mismo</span><span class="text-gold">✦</span>
+          <span>74 conferencias completas</span><span class="text-gold">✦</span>
+          <span>Tres factores</span><span class="text-gold">✦</span>
+          <span>Biblioteca viva</span><span class="text-gold">✦</span>
+          <span>Auto-conocimiento</span><span class="text-gold">✦</span>
+          <span>Revolución de la conciencia</span><span class="text-gold">✦</span>
+          <span>Conocimiento de sí mismo</span><span class="text-gold">✦</span>
+          <span>74 conferencias completas</span><span class="text-gold">✦</span>
+          <span>Tres factores</span><span class="text-gold">✦</span>
+          <span>Biblioteca viva</span><span class="text-gold">✦</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PILARES ══ -->
+    <section id="pilares" class="px-5 py-28 lg:px-10">
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal max-w-3xl">
+          <p class="text-[.7rem] font-extrabold uppercase tracking-[.34em] text-gold2">Fundamentos</p>
+          <h2 class="mt-5 font-serif leading-[.9] tracking-[-.04em]" style="font-size:clamp(2.4rem,6vw,5rem);">
+            Cuatro pilares,<br>una sola arquitectura interior.
+          </h2>
+        </div>
+        <div class="mt-14 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <article class="magnetic-card reveal stagger-1 luxury-border rounded-[2rem] bg-white/[.03] p-7 backdrop-blur-xl">
+            <p class="font-serif text-5xl text-gold/45">01</p>
+            <h3 class="mt-8 text-xl font-bold">Ciencia</h3>
+            <p class="mt-4 text-sm leading-7 text-bone/52">Experimentación, práctica y verificación directa. Conocer no es creer: es comprobar.</p>
+          </article>
+          <article class="magnetic-card reveal stagger-2 luxury-border rounded-[2rem] bg-white/[.03] p-7 backdrop-blur-xl">
+            <p class="font-serif text-5xl text-gold/45">02</p>
+            <h3 class="mt-8 text-xl font-bold">Arte</h3>
+            <p class="mt-4 text-sm leading-7 text-bone/52">Símbolo, creación y belleza. El lenguaje visual del alma que trasciende el intelecto ordinario.</p>
+          </article>
+          <article class="magnetic-card reveal stagger-3 luxury-border rounded-[2rem] bg-white/[.03] p-7 backdrop-blur-xl">
+            <p class="font-serif text-5xl text-gold/45">03</p>
+            <h3 class="mt-8 text-xl font-bold">Psicología</h3>
+            <p class="mt-4 text-sm leading-7 text-bone/52">Observación de los estados, agregados y reacciones que fragmentan la conciencia despierta.</p>
+          </article>
+          <article class="magnetic-card reveal stagger-4 luxury-border rounded-[2rem] bg-white/[.03] p-7 backdrop-blur-xl">
+            <p class="font-serif text-5xl text-gold/45">04</p>
+            <h3 class="mt-8 text-xl font-bold">Mística</h3>
+            <p class="mt-4 text-sm leading-7 text-bone/52">Amor al trabajo interior y exterior. La práctica convertida en servicio consciente y amoroso.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ MÉTODO ══ -->
+    <section id="metodo" class="relative overflow-hidden border-y border-white/8 bg-white/[.02] px-5 py-28 lg:px-10">
+      <div class="absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/4 blur-3xl pointer-events-none"></div>
+      <div class="relative mx-auto max-w-7xl">
+        <div class="reveal mx-auto max-w-3xl text-center">
+          <p class="text-[.7rem] font-extrabold uppercase tracking-[.34em] text-gold2">Los tres factores</p>
+          <h2 class="mt-5 font-serif leading-[.9] tracking-[-.04em]" style="font-size:clamp(2.4rem,6vw,5rem);">
+            Un método convertido<br>en experiencia.
+          </h2>
+        </div>
+        <div class="mt-16 grid gap-5 lg:grid-cols-3">
+          <article class="reveal stagger-1 rounded-[2rem] border border-white/10 bg-void/60 p-8" style="box-shadow:0 25px 90px rgba(0,0,0,.4);">
+            <div class="mb-10 flex items-center justify-between">
+              <span class="font-serif text-6xl text-gold2">I</span>
+              <span class="rounded-full border border-white/10 px-4 py-2 text-[.65rem] uppercase tracking-[.2em] text-bone/42">Crear</span>
+            </div>
+            <h3 class="font-serif text-4xl">Nacer</h3>
+            <p class="mt-5 text-sm leading-7 text-bone/55">Trabajo de generación interior y creación consciente de los vehículos superiores del Ser a través del Fuego Sagrado.</p>
+            <a href="conferencias.html?phase=A&tag=tres+factores" class="mt-8 inline-flex items-center gap-2 text-[.68rem] font-bold uppercase tracking-[.2em] text-gold transition hover:text-gold2">
+              Conferencias relacionadas <span class="transition hover:translate-x-1">→</span>
+            </a>
+          </article>
+          <article class="reveal stagger-2 rounded-[2rem] border border-gold/18 p-8" style="background:linear-gradient(180deg,rgba(198,161,91,.08),rgba(255,255,255,.025));box-shadow:0 0 60px rgba(198,161,91,.1);">
+            <div class="mb-10 flex items-center justify-between">
+              <span class="font-serif text-6xl text-gold2">II</span>
+              <span class="rounded-full border border-gold/22 px-4 py-2 text-[.65rem] uppercase tracking-[.2em] text-gold2">Transformar</span>
+            </div>
+            <h3 class="font-serif text-4xl">Morir</h3>
+            <p class="mt-5 text-sm leading-7 text-bone/60">Disolución psicológica del Ego mediante auto-observación, comprensión directa y súplica interior a la Madre Divina.</p>
+            <a href="conferencias.html?tag=muerte+psicol%C3%B3gica" class="mt-8 inline-flex items-center gap-2 text-[.68rem] font-bold uppercase tracking-[.2em] text-gold transition hover:text-gold2">
+              Técnica de los detalles <span>→</span>
+            </a>
+          </article>
+          <article class="reveal stagger-3 rounded-[2rem] border border-white/10 bg-void/60 p-8" style="box-shadow:0 25px 90px rgba(0,0,0,.4);">
+            <div class="mb-10 flex items-center justify-between">
+              <span class="font-serif text-6xl text-gold2">III</span>
+              <span class="rounded-full border border-white/10 px-4 py-2 text-[.65rem] uppercase tracking-[.2em] text-bone/42">Servir</span>
+            </div>
+            <h3 class="font-serif text-4xl">Sacrificio</h3>
+            <p class="mt-5 text-sm leading-7 text-bone/55">Entrega desinteresada del conocimiento y servicio como expresión práctica del amor consciente y universal.</p>
+            <a href="conferencia.html?id=fase-a-40" class="mt-8 inline-flex items-center gap-2 text-[.68rem] font-bold uppercase tracking-[.2em] text-gold transition hover:text-gold2">
+              Conf. 40 — Sacrificio <span>→</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ YOES ══ -->
+    <section id="yoes" class="px-5 py-28 lg:px-10">
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p class="text-[.7rem] font-extrabold uppercase tracking-[.34em] text-gold2">Hub psicológico</p>
+            <h2 class="mt-5 font-serif leading-[.9] tracking-[-.04em]" style="font-size:clamp(2.4rem,6vw,5rem);">
+              Estudios de<br>los Yoes.
+            </h2>
+          </div>
+          <p class="max-w-md text-sm leading-7 text-bone/52">Cada "Yo" es un fragmento de conciencia atrapado en un defecto. Conocerlos, comprenderlos y disolverlos es la tarea más urgente del buscador.</p>
+        </div>
+
+        <div class="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <article class="magnetic-card reveal stagger-1 luxury-border rounded-[1.8rem] bg-white/[.03] p-6 backdrop-blur-xl">
+            <span class="text-[.62rem] font-bold uppercase tracking-[.28em] text-gold2">Estudio 01</span>
+            <h3 class="mt-4 text-lg font-bold leading-snug">El Yo del Abatimiento por Pérdida Afectiva</h3>
+            <p class="mt-3 text-xs leading-6 text-bone/50">Estructura psicológica que convierte el dolor por pérdida en identidad, culto al sufrimiento y resistencia al presente.</p>
+            <a href="conferencia.html?id=yo-abatimiento" class="mt-5 inline-flex items-center gap-2 text-[.67rem] font-bold uppercase tracking-[.2em] text-gold transition hover:text-gold2 hover:gap-3">Leer estudio <span>→</span></a>
+          </article>
+          <article class="magnetic-card reveal stagger-2 luxury-border rounded-[1.8rem] bg-white/[.03] p-6 backdrop-blur-xl">
+            <span class="text-[.62rem] font-bold uppercase tracking-[.28em] text-gold2">Estudio 02</span>
+            <h3 class="mt-4 text-lg font-bold leading-snug">El Yo Conquistador</h3>
+            <p class="mt-3 text-xs leading-6 text-bone/50">Búsqueda de dominio, seducción y victoria para compensar una sensación profunda de insuficiencia interior.</p>
+            <a href="conferencia.html?id=yo-conquistador" class="mt-5 inline-flex items-center gap-2 text-[.67rem] font-bold uppercase tracking-[.2em] text-gold transition hover:text-gold2 hover:gap-3">Leer estudio <span>→</span></a>
+          </article>
+          <article class="magnetic-card reveal stagger-3 luxury-border rounded-[1.8rem] bg-white/[.03] p-6 backdrop-blur-xl">
+            <span class="text-[.62rem] font-bold uppercase tracking-[.28em] text-gold2">Estudio 03</span>
+            <h3 class="mt-4 text-lg font-bold leading-snug">El Yo Machista</h3>
+            <p class="mt-3 text-xs leading-6 text-bone/50">Agregado psicológico de dominio que busca sostener una imagen de superioridad para no enfrentar su propio vacío.</p>
+            <a href="conferencia.html?id=yo-machista" class="mt-5 inline-flex items-center gap-2 text-[.67rem] font-bold uppercase tracking-[.2em] text-gold transition hover:text-gold2 hover:gap-3">Leer estudio <span>→</span></a>
+          </article>
+          <article class="magnetic-card reveal stagger-4 luxury-border rounded-[1.8rem] bg-white/[.03] p-6 backdrop-blur-xl">
+            <span class="text-[.62rem] font-bold uppercase tracking-[.28em] text-gold2">Estudio 04</span>
+            <h3 class="mt-4 text-lg font-bold leading-snug">El Yo del Miedo</h3>
+            <p class="mt-3 text-xs leading-6 text-bone/50">El miedo como antítesis del amor y falta de fuego divino. Presente en todos los defectos como raíz secreta.</p>
+            <a href="conferencia.html?id=yo-miedo" class="mt-5 inline-flex items-center gap-2 text-[.67rem] font-bold uppercase tracking-[.2em] text-gold transition hover:text-gold2 hover:gap-3">Leer estudio <span>→</span></a>
+          </article>
+          <article class="magnetic-card reveal stagger-5 luxury-border rounded-[1.8rem] bg-white/[.03] p-6 backdrop-blur-xl">
+            <span class="text-[.62rem] font-bold uppercase tracking-[.28em] text-gold2">Estudio 05</span>
+            <h3 class="mt-4 text-lg font-bold leading-snug">El Yo de la Relación Tóxica</h3>
+            <p class="mt-3 text-xs leading-6 text-bone/50">Estructura que convierte el vínculo humano en posesión, sufrimiento, dependencia y repetición mecánica.</p>
+            <a href="conferencia.html?id=yo-relacion-toxica" class="mt-5 inline-flex items-center gap-2 text-[.67rem] font-bold uppercase tracking-[.2em] text-gold transition hover:text-gold2 hover:gap-3">Leer estudio <span>→</span></a>
+          </article>
+          <article class="magnetic-card reveal stagger-6 luxury-border rounded-[1.8rem] bg-white/[.03] p-6 backdrop-blur-xl">
+            <span class="text-[.62rem] font-bold uppercase tracking-[.28em] text-gold2">Estudio 06</span>
+            <h3 class="mt-4 text-lg font-bold leading-snug">500 Preguntas para Meditación Reflexiva</h3>
+            <p class="mt-3 text-xs leading-6 text-bone/50">Banco completo de preguntas para profundizar en la meditación reflexiva sobre cualquier defecto psicológico.</p>
+            <a href="conferencia.html?id=yo-meditacion-500" class="mt-5 inline-flex items-center gap-2 text-[.67rem] font-bold uppercase tracking-[.2em] text-gold transition hover:text-gold2 hover:gap-3">Leer estudio <span>→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ BIBLIOTECA CTA ══ -->
+    <section class="relative overflow-hidden border-y border-white/8 px-5 py-28 lg:px-10"
+             style="background: radial-gradient(circle at 50% 50%, rgba(198,161,91,.10), transparent 55%), #050505;">
+      <div class="mx-auto max-w-4xl text-center">
+        <div class="reveal">
+          <p class="text-[.7rem] font-extrabold uppercase tracking-[.34em] text-gold2">Biblioteca doctrinal</p>
+          <h2 class="mt-5 font-serif leading-[.9] tracking-[-.04em]" style="font-size:clamp(2.4rem,7vw,6rem);">
+            74 conferencias.<br><span class="text-shimmer">Una sola dirección.</span>
+          </h2>
+          <p class="mx-auto mt-7 max-w-xl text-base leading-8 text-bone/55">
+            Fase A y Fase B completas. Buscador en tiempo real. Filtros por tema. Lector de conferencia individual con progreso, navegación y modo enfocado.
+          </p>
+          <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <a href="conferencias.html"
+               class="group inline-flex items-center gap-3 rounded-full px-8 py-4 text-sm font-extrabold uppercase tracking-[.18em] text-void transition hover:scale-[1.02]"
+               style="background:linear-gradient(135deg,var(--gold2),var(--gold));box-shadow:0 0 70px rgba(198,161,91,.22);">
+              Ver todas las conferencias
+              <span class="transition group-hover:translate-x-1">→</span>
+            </a>
+            <a href="conferencias.html?phase=B"
+               class="inline-flex items-center gap-3 rounded-full border border-white/12 bg-white/[.03] px-8 py-4 text-sm font-bold uppercase tracking-[.18em] text-bone/72 backdrop-blur-xl transition hover:border-gold/38 hover:text-gold2">
+              Ir a Fase B
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="px-5 py-16 lg:px-10">
+    <div class="mx-auto max-w-7xl">
+      <div class="grid gap-12 border-t border-white/8 pt-12 md:grid-cols-[1fr_auto_auto]">
+        <!-- Brand -->
+        <div>
+          <a href="index.html" class="flex items-center gap-3 mb-5">
+            <img src="assets/logo.png" alt="Logo" class="h-12 w-12 object-contain opacity-75"
+                 onerror="this.onerror=null;this.src='assets/logo.svg';" />
+            <span class="font-serif text-xl text-bone/70">Conciencia Revolucionaria</span>
+          </a>
+          <p class="text-sm leading-7 text-bone/42 max-w-xs">Escuela de Auto-Conocimiento. Psicología Revolucionaria. Trabajo interior consciente.</p>
+          <!-- Social links -->
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="https://chat.whatsapp.com/KWamxv5ZAsK2JobCfTkkzF" target="_blank" rel="noopener"
+               class="flex items-center gap-2 rounded-full border border-white/10 bg-white/[.03] px-4 py-2 text-[.65rem] font-bold uppercase tracking-[.18em] text-bone/52 transition hover:border-green-500/40 hover:text-green-400">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.104.544 4.079 1.497 5.8L0 24l6.35-1.475A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-5.001-1.372l-.36-.214-3.732.978.995-3.636-.234-.373A9.794 9.794 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+              WhatsApp
+            </a>
+            <a href="https://www.youtube.com/@concienciarevolucionaria" target="_blank" rel="noopener"
+               class="flex items-center gap-2 rounded-full border border-white/10 bg-white/[.03] px-4 py-2 text-[.65rem] font-bold uppercase tracking-[.18em] text-bone/52 transition hover:border-red-500/40 hover:text-red-400">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+              YouTube
+            </a>
+            <a href="https://www.instagram.com/concienciarevolucionaria18/" target="_blank" rel="noopener"
+               class="flex items-center gap-2 rounded-full border border-white/10 bg-white/[.03] px-4 py-2 text-[.65rem] font-bold uppercase tracking-[.18em] text-bone/52 transition hover:border-pink-500/40 hover:text-pink-400">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              Instagram
+            </a>
+            <a href="https://www.tiktok.com/@concienciarevolucionaria" target="_blank" rel="noopener"
+               class="flex items-center gap-2 rounded-full border border-white/10 bg-white/[.03] px-4 py-2 text-[.65rem] font-bold uppercase tracking-[.18em] text-bone/52 transition hover:border-white/30 hover:text-bone">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.24 8.24 0 004.83 1.56V6.8a4.85 4.85 0 01-1.06-.11z"/></svg>
+              TikTok
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61550522941805" target="_blank" rel="noopener"
+               class="flex items-center gap-2 rounded-full border border-white/10 bg-white/[.03] px-4 py-2 text-[.65rem] font-bold uppercase tracking-[.18em] text-bone/52 transition hover:border-blue-500/40 hover:text-blue-400">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebook
+            </a>
+          </div>
+        </div>
+
+        <!-- Nav -->
+        <div>
+          <p class="text-[.65rem] font-extrabold uppercase tracking-[.28em] text-gold2 mb-5">Navegación</p>
+          <div class="grid gap-2 text-sm text-bone/50">
+            <a href="index.html" class="hover:text-bone transition">Inicio</a>
+            <a href="conferencias.html" class="hover:text-bone transition">Biblioteca</a>
+            <a href="conferencias.html?phase=A" class="hover:text-bone transition">Fase A</a>
+            <a href="conferencias.html?phase=B" class="hover:text-bone transition">Fase B</a>
+            <a href="#yoes" class="hover:text-bone transition">Estudios de los Yoes</a>
+          </div>
+        </div>
+
+        <!-- Phrase -->
+        <div class="max-w-xs">
+          <p class="font-serif text-2xl text-bone/65 leading-snug">"La muerte es la puerta<br>a <span class="text-gold">la vida</span>."</p>
+          <p class="mt-6 text-[.65rem] text-bone/30 uppercase tracking-[.18em]">© <span id="year"></span> Conciencia Revolucionaria</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="backToTop" aria-label="Volver arriba">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script>
+  'use strict';
+  /* ── Year ── */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ── Navbar + Progress ── */
+  const nav = document.getElementById('navbar');
+  const bar = document.getElementById('progressBar');
+  const btt = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('is-scrolled', scrollY > 24);
+    const h = document.documentElement.scrollHeight - innerHeight;
+    if (h > 0) bar.style.width = Math.min(100, (scrollY / h) * 100) + '%';
+    btt.classList.toggle('visible', scrollY > 500);
+    /* Parallax orbs */
+    document.querySelectorAll('.orb').forEach((orb, i) => {
+      const speed = .12 + i * .06;
+      orb.style.transform = `translateY(${scrollY * speed}px)`;
+    });
+  }, { passive: true });
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ── Mobile menu ── */
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('hidden') === false;
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+  /* ── Reveal on scroll ── */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ── Immediately show hero elements ── */
+  document.querySelectorAll('#inicio .reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), i * 150 + 100);
+  });
+
+  /* ── Magnetic cards + radial light ── */
+  document.querySelectorAll('.magnetic-card').forEach(card => {
+    card.style.willChange = 'transform';
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const rx = ((e.clientY - r.top)  / r.height - 0.5) * -6;
+      const ry = ((e.clientX - r.left) / r.width  - 0.5) *  6;
+      card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+      card.style.setProperty('--mx', ((e.clientX - r.left) / r.width  * 100) + '%');
+      card.style.setProperty('--my', ((e.clientY - r.top)  / r.height * 100) + '%');
+    });
+    card.addEventListener('mouseleave', () => card.style.transform = '');
+  });
+
+  /* ── Cursor glow ── */
+  const glow = document.getElementById('cursorGlow');
+  if (glow) window.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top  = e.clientY + 'px';
+  }, { passive: true });
+
+  /* ── Page fade on navigate ── */
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto')) return;
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.body.classList.add('page-fade-out');
+      setTimeout(() => { location.href = href; }, 230);
+    });
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <!-- Metallic silver gradients -->
+    <linearGradient id="metalMain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#E8E8E8"/>
+      <stop offset="25%"  stop-color="#B0B0B0"/>
+      <stop offset="50%"  stop-color="#D8D8D8"/>
+      <stop offset="75%"  stop-color="#888888"/>
+      <stop offset="100%" stop-color="#C0C0C0"/>
+    </linearGradient>
+    <linearGradient id="metalDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#707070"/>
+      <stop offset="50%"  stop-color="#404040"/>
+      <stop offset="100%" stop-color="#606060"/>
+    </linearGradient>
+    <linearGradient id="metalLight" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#909090"/>
+      <stop offset="40%"  stop-color="#D0D0D0"/>
+      <stop offset="100%" stop-color="#F0F0F0"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#C8C8C8" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#303030" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+    <filter id="innerShadow">
+      <feOffset dx="0" dy="2"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- ─── TRIQUETRA / TRIKELION ─── -->
+  <!-- The triquetra is built from three interlocked vesica-piscis arcs -->
+  <!-- Each petal is a thick stroked arc rotated 120° around center (200,210) -->
+
+  <g filter="url(#shadow)" transform="translate(200,205)">
+
+    <!-- OUTER thick stroke paths — dark layer (depth/shadow side) -->
+    <!-- Top petal -->
+    <path d="M 0,-95 C 55,-95 90,-50 90,0 C 90,50 55,75 0,75 C -55,75 -90,50 -90,0 C -90,-50 -55,-95 0,-95 Z"
+          fill="none" stroke="url(#metalDark)" stroke-width="28"
+          transform="rotate(0)" opacity="0.9"/>
+    <!-- Bottom-right petal -->
+    <path d="M 0,-95 C 55,-95 90,-50 90,0 C 90,50 55,75 0,75 C -55,75 -90,50 -90,0 C -90,-50 -55,-95 0,-95 Z"
+          fill="none" stroke="url(#metalDark)" stroke-width="28"
+          transform="rotate(120)" opacity="0.9"/>
+    <!-- Bottom-left petal -->
+    <path d="M 0,-95 C 55,-95 90,-50 90,0 C 90,50 55,75 0,75 C -55,75 -90,50 -90,0 C -90,-50 -55,-95 0,-95 Z"
+          fill="none" stroke="url(#metalDark)" stroke-width="28"
+          transform="rotate(240)" opacity="0.9"/>
+
+    <!-- MIDDLE stroke paths — main silver -->
+    <path d="M 0,-95 C 55,-95 90,-50 90,0 C 90,50 55,75 0,75 C -55,75 -90,50 -90,0 C -90,-50 -55,-95 0,-95 Z"
+          fill="none" stroke="url(#metalMain)" stroke-width="22"
+          transform="rotate(0)"/>
+    <path d="M 0,-95 C 55,-95 90,-50 90,0 C 90,50 55,75 0,75 C -55,75 -90,50 -90,0 C -90,-50 -55,-95 0,-95 Z"
+          fill="none" stroke="url(#metalMain)" stroke-width="22"
+          transform="rotate(120)"/>
+    <path d="M 0,-95 C 55,-95 90,-50 90,0 C 90,50 55,75 0,75 C -55,75 -90,50 -90,0 C -90,-50 -55,-95 0,-95 Z"
+          fill="none" stroke="url(#metalMain)" stroke-width="22"
+          transform="rotate(240)"/>
+
+    <!-- HIGHLIGHT — thin bright edge -->
+    <path d="M 0,-95 C 55,-95 90,-50 90,0 C 90,50 55,75 0,75 C -55,75 -90,50 -90,0 C -90,-50 -55,-95 0,-95 Z"
+          fill="none" stroke="url(#metalLight)" stroke-width="8"
+          transform="rotate(0)" opacity="0.7"/>
+    <path d="M 0,-95 C 55,-95 90,-50 90,0 C 90,50 55,75 0,75 C -55,75 -90,50 -90,0 C -90,-50 -55,-95 0,-95 Z"
+          fill="none" stroke="url(#metalLight)" stroke-width="8"
+          transform="rotate(120)" opacity="0.7"/>
+    <path d="M 0,-95 C 55,-95 90,-50 90,0 C 90,50 55,75 0,75 C -55,75 -90,50 -90,0 C -90,-50 -55,-95 0,-95 Z"
+          fill="none" stroke="url(#metalLight)" stroke-width="8"
+          transform="rotate(240)" opacity="0.7"/>
+
+    <!-- Center knot circle -->
+    <circle cx="0" cy="0" r="30" fill="url(#metalDark)" stroke="url(#metalMain)" stroke-width="6"/>
+    <circle cx="0" cy="0" r="30" fill="url(#centerGlow)"/>
+    <circle cx="0" cy="0" r="18" fill="none" stroke="url(#metalLight)" stroke-width="3" opacity="0.6"/>
+
+  </g>
+
+  <!-- ─── TEXT "CONCIENCIA REVOLUCIONARIA" ─── -->
+  <text
+    x="200" y="355"
+    text-anchor="middle"
+    font-family="Montserrat, Arial, sans-serif"
+    font-size="18"
+    font-weight="400"
+    letter-spacing="6"
+    fill="#A0A0A0"
+  >CONCIENCIA REVOLUCIONARIA</text>
+</svg>
