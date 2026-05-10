@@ -13,6 +13,9 @@ env/
 # Scripts internos y reportes
 _reports/
 
+# PDFs fuente (grandes, ya procesados)
+assets/*.pdf
+
 # OS
 .DS_Store
 Thumbs.db
